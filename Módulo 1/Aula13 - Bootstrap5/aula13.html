@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap 5</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <style>
+        .borda{
+            border: 2px solid red;
+            margin: 10px;
+        }
+        .caixa{
+            height: 50px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Sistema de grid bootstrap</h1>
+    <div class="container borda">
+        container
+        <div class="row borda">
+            <div>Espaçamento automático</div>
+            <div class="col borda">Coluna 1</div>
+            <div class="col borda">Coluna 2</div>
+            <div class="col borda">Coluna 3</div>
+            <div class="col borda">Coluna 4</div>
+            <div class="col borda">Coluna 5</div>
+            <div class="col borda">Coluna 6</div>
+        </div>
+        <div class="row borda">
+            <div>Colunas com largura fixa</div>
+            <div class="col-4 border border-warning">Coluna 1</div>
+            <div class="col-5 border border-warning">Coluna 2</div>
+            <div class="col-3 border border-warning">Coluna 3</div>
+            <div class="col-1 border border-warning">Coluna 4</div>
+        </div>
+        <div class="row border border-success">
+            <div>Colunas responsivas</div>
+            <div class="col-1 col-sm-12 col-md-6 col-lg-4 col-xl-8 col-xxl-12 caixa bg-secondary">Coluna 1</div>
+            <div class="col-2 col-sm-12 col-md-4 col-lg-4 col-xl-2 d-xxl-none caixa bg-warning">Coluna 2</div>
+            <div class="col-9 col-sm-12 col-md-2 col-lg-4 col-xl-2 d-xxl-none caixa bg-danger">Coluna 3</div>
+        </div>
+    </div>
+
+    
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+</html>
