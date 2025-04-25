@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laço de repetição</title>
+</head>
+<script>
+    //// Crie um programa que receba 3 notas de alunos e calcule a média. Caso a média seja acima de 7, mostre uma mensagem deizendo que ele está aprovado, se a média ficar entre 4 e 7, recuperação e se ficar abaixo de 4, reprovado.
+
+    // let nota1 = Number(prompt('Nota 1: '))
+    // let nota2 = Number(prompt('Nota 2: '))
+    // let nota3 = Number(prompt('Nota 3: '))
+
+    // let media = (nota1+nota2+nota3)/3
+
+    // if(media > 7){
+    //     document.write('Aluno Aprovado por média')
+    // }else if(media >= 4 && media < 7){
+    //     document.write('Aluno de recuperação')
+    // }else{
+    //     document.write('Aluno reprovado')
+    // }
+
+    //Caso a média seja acima de 7, mostre uma mensagem deizendo que ele está aprovado, e se a média ficar abaixo de 7, recuperação.
+
+    // let resultado = (media >=7) ? "Aprovado":"O aluno está de Recuperação"
+
+    // document.write(resultado)
+
+    // Verifique se a idade está entre 13 e 18 para usar uma função específica do sistema.
+
+    // let idade = Number(prompt('Digite sua idade'))
+    // let resultado = (idade <= 18 && idade >= 13) ? "Pode usar":"Não pode"
+    // document.write(resultado)
+
+    //Crie um programa que receba do usuário o nome de uma fruta e mostre o preço dessa fruta. Maça = 2,00, banana = 3,00, laranja = 2,50.
+
+    // let fruta = prompt('Digite a fruta')
+
+    // switch (fruta) {
+    //     case 'maça':
+    //         document.write('A maça custa 2,00 reais')
+    //         break;
+    //     case 'banana':
+    //         document.write('A banana custa 3,00 reais')
+    //         break
+    //     case 'laranja':
+    //         document.write('A laranja custa 2,50 reais')
+    //         break
+    //     default:
+    //         document.write('Tem mas está faltando!')
+    //         break;
+    // }
+
+    // Crie um programa com um menu de opções. 1 - Cadastrar aluno, receber do teclado o nome e matricula do aluno. 2 - Calcular média do Aluno (receber 2 notas e calcula a média). 3 - Mostrar situação do aluno ( receba a média pelo teclado e mostre aprovado caso ela seja maior que 7 e recuperação se for menor que 7)
+
+    // let opcao = prompt('Escolha uma opção\n 1 - Cadastrar\n 2 - Calcular média\n 3 - Mostrar a situação')
+
+    
+    // Laços de repetição
+
+    // while(condição -> true){
+    //   repetir
+    //}
+
+    // Crie um programa que solicite uma senha, caso a pessoa erre a senha, solicite ela novamente, até que a pesso acerte.
+
+    // alert('Saida de dados')
+    // console.log('Saida de dados');
+    // document.write('<h1>Saída de dados</h1>')
+    
+
+    let senhaCadastrada = '123456'
+
+    let senhaDigitada = prompt('Digite a senha')
+
+    let tentativas = 0
+
+    while (senhaCadastrada != senhaDigitada) {
+
+        senhaDigitada = prompt('Senha errada, digite novamente')
+        tentativas++
+
+        if(tentativas > 5){
+            document.write(`Você atingiu o limite de tentativas`)
+            break
+        }
+    }
+    
+
+    
+
+
+    // crie um programa com o while que conte até 10
+
+    
+
+
+
+
+
+
+
+</script>
+<body>
+    
+</body>
+</html>
