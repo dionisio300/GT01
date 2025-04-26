@@ -71,28 +71,53 @@
     // document.write('<h1>Saída de dados</h1>')
     
 
-    let senhaCadastrada = '123456'
+    // let senhaCadastrada = '123456'
 
-    let senhaDigitada = prompt('Digite a senha')
+    // let senhaDigitada = prompt('Digite a senha')
 
-    let tentativas = 0
+    // let tentativas = 0
 
-    while (senhaCadastrada != senhaDigitada) {
+    // while (senhaCadastrada != senhaDigitada) {
 
-        senhaDigitada = prompt('Senha errada, digite novamente')
-        tentativas++
+    //     senhaDigitada = prompt('Senha errada, digite novamente')
+    //     tentativas++
 
-        if(tentativas > 5){
-            document.write(`Você atingiu o limite de tentativas`)
-            break
-        }
+    //     if(tentativas > 5){
+    //         document.write(`Você atingiu o limite de tentativas`)
+    //         break
+    //     }
+    // }
+
+
+    //do ... while
+
+    // let numero = 12
+
+    // do{
+    //    numero = Number(prompt('Digite um número maior que 10'))
+    
+    // }while(numero <= 10)
+
+    // let numero = 12
+
+    // while(numero <=10){
+    //     numero = Number(prompt('Digite um número maior que 10'))
+    // }
+
+    // for(inicialização ; condição ; incremento)
+
+    // for (let a = 10; a > 0; a--) {
+    //     document.write(`${a} <br>`)
+    // }
+
+
+    let numero = Number(prompt('Digite um número'))
+
+    for(let i = 1; i < 11; i++){
+        let multi = numero * i
+        document.write(`${numero} x ${i} = ${multi} <br>`)
     }
-    
 
-    
-
-
-    // crie um programa com o while que conte até 10
 
     
 
