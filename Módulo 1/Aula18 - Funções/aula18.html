@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Funções JavaScript</title>
 </head>
+<script src="funcoes.js"></script>
 
 <script>
 // 13. Simule um sistema bancário simples com saldo inicial. Em um while, pergunte se o usuário quer "Depositar", "Sacar" ou "Sair". Use switch para lidar com as opções e prompt() para valores.
@@ -33,31 +34,144 @@
 
 // Crie uma calculadora: receba 2 numeros do usuário, e uma operação: +, -, /, *, ou sair, se ela escolher sair, encerrar o programa. Se ela escolher uma das operações, mostrar o resultado.
 
-let operacao = prompt('1 - Soma\n2 - Subtração\n3 - Multiplicação\n4 - Divisão\n5 - Sair')
-while(operacao != '5'){
-    if(operacao == '1'){
-        let n1 = Number(prompt('N1: '))
-        let n2 = Number(prompt('N2: '))
-        let soma = n1 + n2
-        alert(`O resultado da soma é ${soma}`)
-    }else if(operacao == '2'){
-        let n1 = Number(prompt('N1: '))
-        let n2 = Number(prompt('N2: '))
-        let subtracao = n1 - n2
-        alert(`O resultado da subtração é ${subtracao}`)
-    }else if(operacao == '3'){
-        let n1 = Number(prompt('N1: '))
-        let n2 = Number(prompt('N2: '))
-        let multiplicacao = n1 * n2
-        alert(`O resultado da multiplicação é ${multiplicacao}`)
-    }else if(operacao == '4'){
-        let n1 = Number(prompt('N1: '))
-        let n2 = Number(prompt('N2: '))
-        let divisao = n1 / n2
-        alert(`O resultado da divisão é ${divisao}`)
+// let operacao = prompt('1 - Soma\n2 - Subtração\n3 - Multiplicação\n4 - Divisão\n5 - Sair')
+// while(operacao != '5'){
+//     if(operacao == '1'){
+//         let n1 = Number(prompt('N1: '))
+//         let n2 = Number(prompt('N2: '))
+//         let soma = n1 + n2
+//         alert(`O resultado da soma é ${soma}`)
+//     }else if(operacao == '2'){
+//         let n1 = Number(prompt('N1: '))
+//         let n2 = Number(prompt('N2: '))
+//         let subtracao = n1 - n2
+//         alert(`O resultado da subtração é ${subtracao}`)
+//     }else if(operacao == '3'){
+//         let n1 = Number(prompt('N1: '))
+//         let n2 = Number(prompt('N2: '))
+//         let multiplicacao = n1 * n2
+//         alert(`O resultado da multiplicação é ${multiplicacao}`)
+//     }else if(operacao == '4'){
+//         let n1 = Number(prompt('N1: '))
+//         let n2 = Number(prompt('N2: '))
+//         let divisao = n1 / n2
+//         alert(`O resultado da divisão é ${divisao}`)
+//     }
+//     operacao = prompt('1 - Soma\n2 - Subtração\n3 - Multiplicação\n4 - Divisão\n5 - Sair')
+// }
+
+
+
+// Função sem parâmentros e sem retorno
+
+
+
+
+
+
+// 35
+
+
+// let soma = somar_numeros('Olá ','Mundo')
+// alert(soma)
+
+//mandar_mensagem()
+
+//mandarMensagemPersonalizada('Davi',20)
+
+
+
+/*
+3. Crie uma função que receba uma idade e retorne se é "Criança", "Adolescente" ou "Adulto".
+
+*/
+
+
+//let x = Number(prompt('Digite um número'))
+
+//document.write(`O número é ${verificar_paridade(x)}`)
+
+// let idade = Number(prompt('Digite sua idade'))
+// document.write(`Você é ${verificar_faixa_etaria(idade)}`)
+
+let saldo = 500
+
+do{
+    let opcoes = prompt('1 - Depositar\n2 - Sacar\n3 - Ver saldo\n4 - Sair')
+    if(opcoes == '1'){
+        let deposito = Number(prompt('Quanto vai depositar?'))
+        alert(`Seu saldo é ${depositar_valor(deposito,saldo)}`)
+    }if(opcoes == '2'){
+        let saque = Number(prompt('Quanto vai sacar?'))
+        sacar_valor(saque,saldo)
+    }else if (opcoes == '3'){
+        mostrar_saldo(saldo)
     }
-    operacao = prompt('1 - Soma\n2 - Subtração\n3 - Multiplicação\n4 - Divisão\n5 - Sair')
-}
+}while(opcoes != '4')
+
+/*
+Questões
+============================================================================
+1. Crie uma função que receba dois números e retorne a soma deles.
+
+2. Crie uma função que receba um número e retorne se ele é par ou ímpar.
+
+3. Crie uma função que receba uma idade e retorne se é "Criança", "Adolescente" ou "Adulto".
+
+4. Crie uma função que receba um número de 1 a 7 e retorne o dia da semana correspondente.
+
+6. Crie uma função que receba um número e imprima todos os números de 0 até ele.
+
+8. Crie uma função que receba um número e diga se é positivo, negativo ou zero.
+
+9. Crie uma função que simule uma calculadora. A função deve receber 2 números e uma operação (+, -, *, /) e usar switch para calcular.
+
+=============================================================================
+1. Crie uma função chamada cumprimentar que exibe "Olá, mundo!" no console.
+
+2. Crie uma função chamada mostrarNome que receba um nome como parâmetro e exiba "Olá, [nome]" no console.
+(Exemplo: se passar "Maria", deve aparecer "Olá, Maria")
+
+3. Crie uma função chamada somar que receba dois números como parâmetros e retorne a soma deles.
+
+4. Crie uma função chamada multiplicarPorDois que receba um número como parâmetro e retorne esse número multiplicado por 2.
+
+5. Crie uma função mostrarMensagem que NÃO recebe parâmetros e NÃO retorna nada, apenas imprime no console: "Funções são legais!"
+
+6. Crie uma função chamada verificarPar que recebe um número e retorna true se o número for par, ou false se for ímpar.
+
+7. Crie uma função chamada converterParaMaiusculo que receba uma palavra e retorne a palavra toda em letras maiúsculas.
+
+8. Crie uma função calcularAreaRetangulo que receba dois parâmetros (base e altura) e retorne a área do retângulo.
+(Fórmula: área = base × altura)
+
+
+
+
+========================================================================
+2. Crie uma função classificarNota que receba uma nota de 0 a 10 e use switch para retornar: "Excelente" (9–10), "Bom" (7–8), "Regular" (5–6), ou "Reprovado" (0–4).
+
+3. Crie uma função listarNumerosPares que receba um número n e imprima todos os números pares de 0 até n.
+Use for.
+
+4. Crie uma função contarDezAZero que imprima no console os números de 10 até 0, usando while.
+
+
+6. Crie uma função tabuada que receba um número e imprima a tabuada dele de 1 a 10 usando for.
+
+9. Crie uma função mediaNotas que receba 5 notas (uma lista ou chamadas separadas) e calcule a média. Depois, com if/else, diga se a pessoa foi "Aprovada" (média ≥ 7) ou "Reprovada".
+
+
+Use switch para executar a operação matemática entre dois números.
+
+
+*/
+
+
+
+
+
+
 
 </script>
 
