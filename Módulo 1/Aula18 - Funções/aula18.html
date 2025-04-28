@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funções JavaScript</title>
+</head>
+
+<script>
+// 13. Simule um sistema bancário simples com saldo inicial. Em um while, pergunte se o usuário quer "Depositar", "Sacar" ou "Sair". Use switch para lidar com as opções e prompt() para valores.
+
+let saldo = 500
+let opcao 
+do{
+    opcao = prompt('Digite uma opção:\n1 - Depositar\n2 - Sacar\n3 - Verificar Saldo\n4 - Sair')
+    if(opcao == '1'){
+        let deposito = Number(prompt('Depósito: '))
+        saldo += deposito
+        alert(`Depósito realizado com sucesso, saldo = ${saldo}`)
+    }else if(opcao == '2'){
+        let saque = Number(prompt('Saque: '))
+
+        if(saque <= saldo){
+            saldo -= saque
+            alert(`Saque realizado com sucesso, saldo = ${saldo}`)
+        }else{
+            alert('Saldo insuficiente')
+        }
+    }else if(opcao == '3'){
+        alert(`Seu saldo atual é: ${saldo}`)
+    }
+}while(opcao != '4')
+
+
+
+</script>
+
+<body>
+    
+</body>
+</html>
