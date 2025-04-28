@@ -9,29 +9,55 @@
 <script>
 // 13. Simule um sistema bancário simples com saldo inicial. Em um while, pergunte se o usuário quer "Depositar", "Sacar" ou "Sair". Use switch para lidar com as opções e prompt() para valores.
 
-let saldo = 500
-let opcao 
-do{
-    opcao = prompt('Digite uma opção:\n1 - Depositar\n2 - Sacar\n3 - Verificar Saldo\n4 - Sair')
-    if(opcao == '1'){
-        let deposito = Number(prompt('Depósito: '))
-        saldo += deposito
-        alert(`Depósito realizado com sucesso, saldo = ${saldo}`)
-    }else if(opcao == '2'){
-        let saque = Number(prompt('Saque: '))
+// let saldo = 500
+// let opcao 
+// do{
+//     opcao = prompt('Digite uma opção:\n1 - Depositar\n2 - Sacar\n3 - Verificar Saldo\n4 - Sair')
+//     if(opcao == '1'){
+//         let deposito = Number(prompt('Depósito: '))
+//         saldo += deposito
+//         alert(`Depósito realizado com sucesso, saldo = ${saldo}`)
+//     }else if(opcao == '2'){
+//         let saque = Number(prompt('Saque: '))
 
-        if(saque <= saldo){
-            saldo -= saque
-            alert(`Saque realizado com sucesso, saldo = ${saldo}`)
-        }else{
-            alert('Saldo insuficiente')
-        }
-    }else if(opcao == '3'){
-        alert(`Seu saldo atual é: ${saldo}`)
+//         if(saque <= saldo){
+//             saldo -= saque
+//             alert(`Saque realizado com sucesso, saldo = ${saldo}`)
+//         }else{
+//             alert('Saldo insuficiente')
+//         }
+//     }else if(opcao == '3'){
+//         alert(`Seu saldo atual é: ${saldo}`)
+//     }
+// }while(opcao != '4')
+
+// Crie uma calculadora: receba 2 numeros do usuário, e uma operação: +, -, /, *, ou sair, se ela escolher sair, encerrar o programa. Se ela escolher uma das operações, mostrar o resultado.
+
+let operacao = prompt('1 - Soma\n2 - Subtração\n3 - Multiplicação\n4 - Divisão\n5 - Sair')
+while(operacao != '5'){
+    if(operacao == '1'){
+        let n1 = Number(prompt('N1: '))
+        let n2 = Number(prompt('N2: '))
+        let soma = n1 + n2
+        alert(`O resultado da soma é ${soma}`)
+    }else if(operacao == '2'){
+        let n1 = Number(prompt('N1: '))
+        let n2 = Number(prompt('N2: '))
+        let subtracao = n1 - n2
+        alert(`O resultado da subtração é ${subtracao}`)
+    }else if(operacao == '3'){
+        let n1 = Number(prompt('N1: '))
+        let n2 = Number(prompt('N2: '))
+        let multiplicacao = n1 * n2
+        alert(`O resultado da multiplicação é ${multiplicacao}`)
+    }else if(operacao == '4'){
+        let n1 = Number(prompt('N1: '))
+        let n2 = Number(prompt('N2: '))
+        let divisao = n1 / n2
+        alert(`O resultado da divisão é ${divisao}`)
     }
-}while(opcao != '4')
-
-
+    operacao = prompt('1 - Soma\n2 - Subtração\n3 - Multiplicação\n4 - Divisão\n5 - Sair')
+}
 
 </script>
 
