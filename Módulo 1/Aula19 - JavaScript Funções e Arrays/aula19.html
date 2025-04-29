@@ -36,7 +36,59 @@
     // nomes['x'] = 'Fulano'
     // console.log(nomes)
 
+    // let nomes = []
+
+    // for(let i = 0; i < 3; i++){
+    //     nomes[i] = prompt('Digite o nome')
+    // }
+    // console.log(nomes)
+
     //Crie um programa que receba 3 notas e armazene elas em um array de notas, depois calcule a média dessas notas
+
+
+    // Métodos de arrays
+    // método push() - Adicionar um elemento ao final do array
+    let nomes = ['Ana', 'Pedro', 'Maria']
+    nomes.push('Davi')
+    console.log(nomes)
+
+    nomes.push('Carlos','Carla')
+    console.log(nomes)
+
+    //.pop() -> Remover um elemento no final de um array
+    nomes.pop()
+    console.log(nomes)
+
+    //.shift() -> remove o primeiro elemento
+    nomes.shift()
+    console.log(nomes)
+
+    //.unshift() -> Adicionar um elemento no início de um array
+    nomes.unshift('Patrícia')
+    console.log(nomes)
+
+    // .slice() -> Copia parte do array
+    let letras = ['a', 'b', 'c','d']
+    let parte = letras.slice(1,5)
+    console.log(parte)
+
+    //.splice(início,quantidade, substitutos...)
+
+    letras.splice(0,0,'f','g','h')
+    console.log(letras)
+
+    //indexOf -> retorna o índice de um elemento específico 
+
+    let indice = letras.indexOf('z')
+    console.log(indice)
+
+    // includes() -> retorna true se achar o elemetno e false se não achar
+    let achou = letras.includes('z')
+    if(achou){
+        console.log(`achou`)
+    }else{
+        console.log('Não achou')
+    }
 
 
 
