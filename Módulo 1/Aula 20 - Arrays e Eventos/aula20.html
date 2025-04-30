@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funções de Arrays</title>
+</head>
+
+<script src="funcoes.js"></script>
+
+<script>
+/*
+✅ 1. Adicionando nomes
+Crie um array com 3 nomes. Use um if para verificar se o nome "Lucas" está no array. Se não estiver, adicione com push.
+*/
+let nomes = ['João', 'Maria','Pedro']
+
+console.log(nomes)
+
+// if(nomes.indexOf('Lucas') == -1 ){
+//     nomes.push('Lucas')
+// }
+
+if(nomes.includes('Lucas') == false){
+    nomes.splice(0,0,'Lucas','Paulo')
+}
+
+console.log(nomes)
+
+
+
+let frutas = ['banana', 'maçã', 'uva', 'kiwi']
+console.log(frutas);
+
+frutas.splice(2,1)
+
+console.log(frutas);
+//             0   1   2
+let letras = ['a','b','c','d','e']
+
+let letras2 = letras.slice(0,3)
+                     //  0,1,2
+console.log(letras2) // [a,b,c]
+
+
+for(let i = 0;i < 3; i++){
+    letras.push(letras[i])
+}
+
+console.log(letras)
+
+// ✅ 5. Substituir um elemento por outro
+// Dado o array ['joão','ana','paulo'], peça para o usuário (via prompt() em ambiente de navegador) digitar um nome. Se esse nome existir no array (includes), substitua por "visitante" com splice.
+
+
+// ✅ 7. Contar quantas vezes aparece um nome
+// Com o array ['Ana', 'Pedro', 'Ana', 'Maria', 'Ana'], use for para contar quantas vezes o nome "Ana" aparece.
+
+</script>
+
+
+<body>
+    
+</body>
+</html>
