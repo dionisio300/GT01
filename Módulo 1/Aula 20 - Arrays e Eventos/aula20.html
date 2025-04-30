@@ -13,41 +13,41 @@
 ✅ 1. Adicionando nomes
 Crie um array com 3 nomes. Use um if para verificar se o nome "Lucas" está no array. Se não estiver, adicione com push.
 */
-let nomes = ['João', 'Maria','Pedro']
+// let nomes = ['João', 'Maria','Pedro']
 
-console.log(nomes)
+// console.log(nomes)
 
 // if(nomes.indexOf('Lucas') == -1 ){
 //     nomes.push('Lucas')
 // }
 
-if(nomes.includes('Lucas') == false){
-    nomes.splice(0,0,'Lucas','Paulo')
-}
+// if(nomes.includes('Lucas') == false){
+//     nomes.splice(0,0,'Lucas','Paulo')
+// }
 
-console.log(nomes)
-
-
-
-let frutas = ['banana', 'maçã', 'uva', 'kiwi']
-console.log(frutas);
-
-frutas.splice(2,1)
-
-console.log(frutas);
-//             0   1   2
-let letras = ['a','b','c','d','e']
-
-let letras2 = letras.slice(0,3)
-                     //  0,1,2
-console.log(letras2) // [a,b,c]
+// console.log(nomes)
 
 
-for(let i = 0;i < 3; i++){
-    letras.push(letras[i])
-}
 
-console.log(letras)
+// let frutas = ['banana', 'maçã', 'uva', 'kiwi']
+// console.log(frutas);
+
+// frutas.splice(2,1)
+
+// console.log(frutas);
+// //             0   1   2
+// let letras = ['a','b','c','d','e']
+
+// let letras2 = letras.slice(0,3)
+//                      //  0,1,2
+// console.log(letras2) // [a,b,c]
+
+
+// for(let i = 0;i < 3; i++){
+//     letras.push(letras[i])
+// }
+
+// console.log(letras)
 
 // ✅ 5. Substituir um elemento por outro
 // Dado o array ['joão','ana','paulo'], peça para o usuário (via prompt() em ambiente de navegador) digitar um nome. Se esse nome existir no array (includes), substitua por "visitante" com splice.
@@ -68,19 +68,117 @@ console.log(letras)
 // Com o array ['Ana', 'Pedro', 'Ana', 'Maria', 'Ana'], use for para contar quantas vezes o nome "Ana" aparece.
 
 //         0       1       2     3        4      5
-nomes = ['Ana', 'Pedro', 'Ana', 'Maria', 'Ana','Tiago']
+// nomes = ['Ana', 'Pedro', 'Ana', 'Maria', 'Ana','Tiago']
 
-console.log(nomes.length);
+// console.log(nomes.length);
 
-let cont = 0
+// let cont = 0
 
-for(let a = 0; a < nomes.length; a++){
+// for(let a = 0; a < nomes.length; a++){
 
-    if(nomes[a] === 'Ana'){
-        cont++
+//     if(nomes[a] === 'Ana'){
+//         cont++
+//     }
+// }
+// console.log(`A Ana aprareceu ${cont} vezes`)
+
+
+// map -> Criar um novo array com o resultado de aplicar uma função a cada elemento
+
+/* array.map((valor, indice, array) => {
+    código da função ....
+})
+*/
+
+
+// let numeros = [1,2,3]
+
+// let dobro = numeros.map((x) => {
+//     x *= 2
+//     return x
+// })
+
+// console.log(numeros)
+
+// nomes = ['Ana', 'Pedro', 'Ana', 'Maria', 'Ana','Tiago', 'Alex']
+
+// let nomesSq = nomes.map((nome,indice) => {
+//     console.log(`${indice + 1} - ${nome}`)
+// })
+
+// array.filter((valor, indice, array) => {}) - Retorna um novo array apenas com os itens que passarm em um teste
+
+// let nomesA = nomes.filter((nome) => {
+//     if(nome[0] == 'A'){
+//         return nome
+//     }
+// })
+
+// console.log(nomesA)
+
+// array.forEach((valor, indice, array) => {}) - Executar uma função para cada item do array. Não retorna nada.
+
+//nomes = ['Ana', 'Pedro', 'Ana', 'Maria', 'Ana','Tiago', 'Alex']
+// nomes.forEach((nome,indice)=>{
+//     console.log(`${indice + 1} - ${nome}`)
+// })
+
+// numeros = [1,2,3,4,5,6]
+
+// soma = 0
+
+// numeros.forEach((x) => {
+//     soma += x
+// })
+
+// console.log(soma)
+
+//array.reduce((acumulador,valorAtual) => {}, valorInicial) - Reduz o array a um único valor
+
+// numeros = [1,2,3,4,5,6,7,8,9,10]
+
+// let soma2 = numeros.reduce((acumulador, valorAtual) => {
+//     return acumulador + valorAtual
+// }, 0 )
+
+// console.log(soma2)
+
+
+// Objeto -> estrutura de dados que é construida utilizando chave e valor.
+// atributos = caracteristicas
+// métodos = ações
+
+let pessoa = {
+    nome: 'Maria',
+    idade: 28,
+    cpf: '123456781',
+    cidade: 'Fortaleza',
+    dizerOla:()=>{
+        document.write(`Olá!! eu sou ${pessoa.nome} <br>`)
     }
 }
-console.log(`A Ana aprareceu ${cont} vezes`)
+
+console.log(`Olá ${pessoa.nome} você tem ${pessoa.idade} anos de idade`)
+pessoa.dizerOla()
+
+pessoa.nome = prompt('Digite seu nome')
+
+console.log(`Olá ${pessoa.nome} você tem ${pessoa.idade} anos de idade`)
+pessoa.dizerOla()
+
+pessoa.profissao = 'Programador'
+
+console.log(`Olá ${pessoa.nome} você tem ${pessoa.idade} anos de idade e é ${pessoa.profissao}`)
+
+delete pessoa.cidade
+
+console.log(Object.keys(pessoa))
+
+
+
+// Crie um objeto chamado produto que tenha os atributos nome, descrição, e preço. Crie esses atributos inicialme vazios e depois receba do teclado esses atributos. Mostre na tela uma mensagem com o nome a descrição e o valor do produto.
+
+
 
 </script>
 
