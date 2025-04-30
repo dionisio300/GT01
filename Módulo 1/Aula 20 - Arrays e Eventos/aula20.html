@@ -52,9 +52,35 @@ console.log(letras)
 // ✅ 5. Substituir um elemento por outro
 // Dado o array ['joão','ana','paulo'], peça para o usuário (via prompt() em ambiente de navegador) digitar um nome. Se esse nome existir no array (includes), substitua por "visitante" com splice.
 
+// nomes = ['joão','ana','paulo']
+
+// let nome = prompt('Digite o nome')
+
+// let indiceNome = nomes.indexOf(nome)
+
+// if(nomes.includes(nome)){
+//     nomes.splice(indiceNome,1,'Visitante')
+// }
+// console.log(nomes);
+
 
 // ✅ 7. Contar quantas vezes aparece um nome
 // Com o array ['Ana', 'Pedro', 'Ana', 'Maria', 'Ana'], use for para contar quantas vezes o nome "Ana" aparece.
+
+//         0       1       2     3        4      5
+nomes = ['Ana', 'Pedro', 'Ana', 'Maria', 'Ana','Tiago']
+
+console.log(nomes.length);
+
+let cont = 0
+
+for(let a = 0; a < nomes.length; a++){
+
+    if(nomes[a] === 'Ana'){
+        cont++
+    }
+}
+console.log(`A Ana aprareceu ${cont} vezes`)
 
 </script>
 
