@@ -4,30 +4,143 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <style>
+        main div p{
+            background-color: aqua;
+        }
+
+    </style>
+    
+
+
+
 </head>
 
 <body>
     <header>
         <h1>Esse é o cabeçalho</h1>
+        <p class="paragrafo">
+            Paragrafo 1
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eum assumenda velit quaerat nostrum nisi facilis, nihil eligendi! Quibusdam inventore ratione, blanditiis, facilis cupiditate officiis delectus atque soluta quisquam officia molestiae?</p>
     </header>
 
     <hr>
 
     <main>
-        <div>
-            <h2>Esse é o conteúdo principal</h2>
+        <div id="PrimeiroConteudo">
+            <h2 id="titulo">Esse é o conteúdo principal</h2>
 
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eum assumenda velit quaerat nostrum nisi facilis, nihil eligendi! Quibusdam inventore ratione, blanditiis, facilis cupiditate officiis delectus atque soluta quisquam officia molestiae?</p>
+            <p id="paragrafoMain" class="paragrafo">
+                Paragrafo 2
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eum assumenda velit quaerat nostrum nisi facilis, nihil eligendi! Quibusdam inventore ratione, blanditiis, facilis cupiditate officiis delectus atque soluta quisquam officia molestiae?</p>
         </div>
+
+        <button onclick="mudarParagrafo()">Trocar</button>
+
+        <div id="div2">
+            Essa é a div 2
+        </div>
+
+        <div>
+            Essa é a div 3
+        </div>
+
+        
+        <label for="nome">Nome:</label><br>
+        <input id="nome" name="nome" type="text" placeholder="Nome"><br><br>
+
+        <label for="idade">Idade</label><br>
+        <input type="text" name="idade" id="idade"><br><br>
+
+        <label for="idade">Foto</label><br>
+        <input type="text" name="foto" id="foto"><br><br>
+
+        <button onclick="enviarDados()">Enviar</button>
+        <div id="perfil">
+            
+        </div>
+
     </main>
     
     <hr>
 
     <footer>
         <h3>Esse é o footer</h3>
+        <p class="paragrafo">
+            Paragrafo 3
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eum assumenda velit quaerat nostrum nisi facilis, nihil eligendi! Quibusdam inventore ratione, blanditiis, facilis cupiditate officiis delectus atque soluta quisquam officia molestiae?
+        </p>
+
+        <p>
+            Paragrafo 3
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eum assumenda velit quaerat nostrum nisi facilis, nihil eligendi! Quibusdam inventore ratione, blanditiis, facilis cupiditate officiis delectus atque soluta quisquam officia molestiae?
+        </p>
     </footer>
 
     
 </body>
+
+<script>
+    // Formas de acessar elementos do DOM
+    // document.getElementById('') - Selecionar elementos HTML pelo ID
+    let primeiraDiv = document.getElementById('PrimeiroConteudo')
+    console.log(primeiraDiv)
+
+    // document.getElementsByClassName('') - Seleciona os elementos pelo nome da classe
+
+    let paragrafos = document.getElementsByClassName('paragrafo')
+
+    console.log(paragrafos[0])
+    console.log(paragrafos[1])
+    console.log(paragrafos[2])
+
+    // document.getElementsByTagName('Nome da tag')
+    let divs = document.getElementsByTagName('div')
+    console.log(divs)
+
+    for(let i = 0; i < divs.length ; i++){
+        console.log(divs[i])
+    }
+
+    // document.querySelector('seletor tipo o do css')
+
+    let paragrafoNofooter = document.querySelector('footer p')
+    let paragrasfoNofooter= document.querySelectorAll('footer p')
+    console.log(paragrafoNofooter)
+    console.log(paragrasfoNofooter)
+
+    function mudarParagrafo(){
+        alert('Vou trocar o parágrafo!!')
+        let paragrafo = document.getElementById('paragrafoMain')
+        // Mudar conteúdo textual de um elemento
+        paragrafo.innerText = 'Mudei o parágrafo'
+
+        let div2 = document.getElementById('div2')
+        div2.innerHTML = '<img src = "https://i.zst.com.br/thumbs/12/e/b/819281284.jpg" width = 200px>'
+    }
+
+    function enviarDados(){
+        let nome = document.getElementById('nome').value
+        let idade = document.getElementById('idade').value
+        let foto = document.getElementById('foto').value
+
+        console.log(`nome: ${nome}, idade: ${idade}, foto: ${foto}`)
+
+        let divPerfil = document.getElementById('perfil')
+        divPerfil.innerHTML = `
+            <img src="${foto}" alt="" width = '200px'>
+            <h1>Nome:${nome} </h1>
+            <h2>Idade: ${idade}</h2>
+        `
+    }
+
+    // Crie 3 inputs numa página HTML 1 para o nome de um lugar, outro para url de uma foto desse lugar, e outro para o preço da viagem, quando o usuário clicar em enviar dados, mostre o nome do lugar a foto e o preço da viagem.
+
+
+
+
+
+</script>
 
 </html>
