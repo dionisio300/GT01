@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objetos, Array de objetos e DOM</title>
+</head>
+
+<script>
+/*
+    1. Cadastro de pessoa:
+    Peça para o usuário digitar seu nome, idade e cidade via prompt, e crie um objeto literal com essas informações. Depois, exiba esse objeto no console.    
+*/
+
+let pessoa = {}
+
+// pessoa.nome = prompt('Nome:')
+// pessoa.idade = prompt('idade:')
+// pessoa.cidade = prompt('cidade:')
+
+console.log(pessoa);
+
+/*
+3. Cadastro de livro:
+Solicite ao usuário que informe o título, autor e número de páginas de um livro. Crie um objeto com essas informações e exiba uma frase formatada com os dados do livro.
+*/
+let livro = {}
+// livro.titulo = prompt('Título:')
+// livro.autor = prompt('Autor:')
+// livro.paginas = prompt('Páginas:')
+
+console.log(`O lívro ${livro.titulo} do autor ${livro.autor} tem ${livro.paginas} páginas`);
+
+/*
+4. Notas de um aluno:
+Peça que o usuário digite o nome de um aluno e três notas (usando três prompts). Armazene os dados em um objeto com a estrutura { nome, notas: [n1, n2, n3] }. Exiba o objeto e a média das notas no console.
+Crie um método que exiba a média das notas do aluno
+*/
+
+// let aluno = {}
+
+// aluno.nome = prompt('Nome')
+// let notas = []
+
+// for(let i = 0 ; i < 3; i++){
+//     notas[i] = Number(prompt(`Nota ${i+1}`))
+// }
+// aluno.notas = notas
+// aluno.calcularMedia = ()=>{
+//     let media = aluno.notas.reduce((acc, nota) => acc + (nota/3), 0)
+//     console.log(media)
+// }
+
+// aluno.calcularMedia()
+// console.log(aluno)
+
+// 5. Cadastro de alunos:
+// Peça para o usuário digitar os dados (nome e idade) de três alunos, um por vez, e armazene cada um como um objeto dentro de um array de alunos. Ao final, exiba o array completo no console.
+
+let alunos = []
+let aluno = {}
+
+for(let i = 0; i < 3; i++){
+    aluno = {
+        nome: prompt('Nome'),
+        idade: Number(prompt('Idade'))
+    }
+    alunos.push(aluno)
+}
+
+console.log(alunos)
+
+
+
+</script>
+
+
+<body>
+    
+</body>
+</html>
