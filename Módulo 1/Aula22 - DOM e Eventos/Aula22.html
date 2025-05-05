@@ -35,6 +35,19 @@
     <input type="text" name="b" id="b"><br>
 
     <button onclick="trocar()">Trocar</button>
+
+    <div>
+        <img id="imgCarro" src="https://blog.deltafiat.com.br/wp-content/uploads/2023/08/carro-completo.jpeg" alt="" width="200px" height="500px">
+    </div>
+
+    <label for="url">Trocar Imagem: </label>
+    <input type="text" name="url" id="url"><br>
+
+    <button onclick="trocarImagem()">Trocar</button>
+
+
+
+
 </body>
 
 <script>
@@ -79,43 +92,67 @@
     
     //DOM - Seleção de elementos
     
-    let divs = document.getElementsByTagName('div')
-    console.log(divs[2])
+    // let divs = document.getElementsByTagName('div')
+    // console.log(divs[2])
 
-    let divsCaixa = document.getElementsByClassName('caixa1')
-    console.log(divsCaixa)
+    // let divsCaixa = document.getElementsByClassName('caixa1')
+    // console.log(divsCaixa)
 
-    let caixaEspecifica = document.getElementById('caixaEspecifica')
-    console.log(caixaEspecifica)
+    // let caixaEspecifica = document.getElementById('caixaEspecifica')
+    // console.log(caixaEspecifica)
 
-    let caixas = document.querySelector('.caixa1 .sessao1')
-    console.log(caixas.innerText)
+    // let caixas = document.querySelector('.caixa1 .sessao1')
+    // console.log(caixas.innerText)
 
-    //caixas.innerText = '<h1>Novo texto</h1>'
+    // //caixas.innerText = '<h1>Novo texto</h1>'
 
-    caixas.innerHTML = '<h1>Novo texto</h1>'
+    // caixas.innerHTML = '<h1>Novo texto</h1>'
 
-    let pessoas = []
+    // let pessoas = []
 
-    function enviarDados(){
-        let name = document.getElementById('nome')
-        let age = document.getElementById('idade')
+    // function enviarDados(){
+    //     let name = document.getElementById('nome')
+    //     let age = document.getElementById('idade')
 
-        let pessoa = {
-            nome:name.value,
-            idade:age.value
-        }
-        pessoas.push(pessoa)
+    //     let pessoa = {
+    //         nome:name.value,
+    //         idade:age.value
+    //     }
+    //     pessoas.push(pessoa)
 
-        console.log(pessoas)
+    //     console.log(pessoas)
 
-        nome.value = ''
-        age.value = ''
+    //     nome.value = ''
+    //     age.value = ''
 
 
-    }
+    // }
 
     // Crie dois inputs e um botão chamado trocar. Crie uma função que troca os valores dos inputs
+
+    // Formas de alterar os atributos dos elementos do DOM
+
+    function trocarImagem(){
+        let imagem = document.getElementById('imgCarro')
+        let url = document.getElementById('url')
+        let url2 = 'https://www.fiat.com.br/content/dam/fiat/nova-home/carrossel/argo.webp'
+
+        imagem.setAttribute('src',url2)
+        imagem.setAttribute('width','300px')
+
+        imagem.removeAttribute('height')
+
+        console.log(`Essa é a URL da imagem ${imagem.getAttribute('src')}`)
+
+
+
+        console.log(imagem)
+        console.log(url.value)
+
+        url.value = 'Você já trocou a URL'
+        url.setAttribute('disabled','desabled')
+
+    }
 
 
 
