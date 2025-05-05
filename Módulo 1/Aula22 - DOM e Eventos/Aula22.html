@@ -4,6 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aula 22 - DOM e Eventos</title>
+
+    <style>
+        .texto{
+            color: aliceblue;
+            text-align: justify;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: x-large;
+        }
+
+        .caixa1{
+            width: 200px;
+            height: 200px;
+            background-color: aqua;
+        }
+        .caixa2{
+            width: 200px;
+            height: 200px;
+            background-color:blue;
+            color: white;
+        }
+        .caixa3{
+            width: 200px;
+            height: 200px;
+            background-color: red;
+        }
+    </style>
+
+
+
 </head>
 
 <body>
@@ -28,7 +57,7 @@
     <input type="text" name="idade" id="idade"><br><br>
     <button onclick="enviarDados()">Enviar</button> -->
     
-    <Label for="a">A: </Label>
+    <!-- <Label for="a">A: </Label>
     <input type="text" name="a" id="a"><br>
 
     <label for="b">B: </label>
@@ -43,14 +72,100 @@
     <label for="url">Trocar Imagem: </label>
     <input type="text" name="url" id="url"><br>
 
-    <button onclick="trocarImagem()">Trocar</button>
+    <button onclick="trocarImagem()">Trocar</button> -->
 
+    <!-- <h1>Cadastrar Alunos</h1>
+    <label for="nome">Nome: </label>
+    <input type="text" name="nome" id="nome"><br><br>
+
+
+    <label for="idade">Idade: </label>
+    <input type="text" name="idade" id="idade"><br><br>
+
+    <label for="nota">Nota: </label>
+    <input type="text" name="nota", id="nota"><br><br>
+    <button onclick="enviarDados()">Enviar</button>
+    <button onclick="exibirAlunos()">Exibir Alunos</button>
+
+    <div id="areaAlunos">
+
+    </div> -->
+
+    <button onclick="aplicarCss()">Aplicar  CSS</button>
+    <button onclick="alternarCss()">trocar  CSS</button>
+    <div style="display: flex;">
+        
+
+        <div class="caixa1">
+            Div 1
+        </div>
+        <div class="caixa2" id="caixa2">
+            Div 2
+        </div>
+        <div class="caixa3 caixa">
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique ipsa corporis debitis, sequi harum minima tenetur cum autem quasi delectus, eveniet a impedit temporibus sunt ducimus recusandae magni, tempora quas?</p>
+        </div>
+
+    </div>
+    
 
 
 
 </body>
 
 <script>
+
+    function aplicarCss(){
+        //elemento.style.propriedade = valor
+        let caixa1 = document.getElementsByClassName('caixa1')
+        caixa1[0].style.backgroundColor = 'green'
+
+        let caixa2 = document.getElementById('caixa2')
+        caixa2.style.backgroundColor = 'blueviolet'
+
+        let caixa3 = document.getElementsByClassName('caixa3')
+        caixa3[0].classList.add('texto')
+        console.log(caixa3[0].classList)
+        //caixa3[0].classList.add('texto')
+        caixa3[0].classList.remove('caixa')
+        console.log(caixa3[0].classList)
+        
+    }
+
+    function alternarCss(){
+        let caixa3 = document.getElementsByClassName('caixa3')
+        caixa3[0].classList.toggle('texto')
+    }
+
+    // Crie uma página HTML para cadastrar os alunos, precisa de um input para o nome, para idade, para uma nota. Coloque essas informações em um objeto e depois em um array de objetos.
+
+    // Crie um botão para exibir todos os alunos cadastrados, com nome, idade e nota.
+
+    let alunos = [{nome:'João',nota:10,idade:15},{nome:'Maria',nota:8,idade:15}]
+
+    function enviarDados(){
+        let name = document.getElementById('nome')
+        let idade = document.getElementById('idade')
+        let nota = document.getElementById('nota')
+        let aluno = {
+            nome:name.value,
+            idade: idade.value,
+            nota: nota.value
+        }
+        alunos.push(aluno)
+    }
+    //let alunos = [{nome:'João',nota:10,idade:15},{nome:'Maria',nota:8,idade:15}]
+    function exibirAlunos(){
+        let areaAlunos = document.getElementById('areaAlunos')
+        let dadosAlunos = ''
+        alunos.forEach((aluno) => {
+            dadosAlunos += `Nome: ${aluno.nome} Idade: ${aluno.idade} Nota: ${aluno.nota} <br>`
+        })
+        console.log(dadosAlunos)
+
+        areaAlunos.innerHTML = dadosAlunos
+        
+    }
 
     // function trocar(){
     //     let a = document.getElementById('a')
