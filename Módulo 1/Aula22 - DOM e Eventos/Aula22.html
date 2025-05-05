@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 22 - DOM e Eventos</title>
+</head>
+
+<body>
+
+    <!-- <div class="caixa1">
+        <p>Div 1</p>
+        <div class="sessao1">
+            <h1>Essa é a sessão 1</h1>
+        </div>
+    </div>
+    <div class="caixa1">
+        <p>Div 2</p>
+    </div>
+    <div id="caixaEspecifica">
+        <p>Div 3</p>
+    </div>
+
+    <label for="nome">Nome: </label>
+    <input type="text" name="nome" id="nome"><br><br>
+
+    <label for="idade">Idade: </label>
+    <input type="text" name="idade" id="idade"><br><br>
+    <button onclick="enviarDados()">Enviar</button> -->
+    
+    <Label for="a">A: </Label>
+    <input type="text" name="a" id="a"><br>
+
+    <label for="b">B: </label>
+    <input type="text" name="b" id="b"><br>
+
+    <button onclick="trocar()">Trocar</button>
+</body>
+
+<script>
+
+    // function trocar(){
+    //     let a = document.getElementById('a')
+    //     let b = document.getElementById('b')
+
+    //     let c = a.value
+
+    //     a.value = b.value
+    //     b.value = c
+
+    // }
+
+    //Objetos, array de objetos e DOM
+
+    // let pessoaArray = ['João',35,'rua dos bobos','8585858585']
+    // console.log(pessoaArray[0]);
+
+    // let pessoaObj = {
+    //     nome: 'João',
+    //     idade: 35,
+    // }
+    
+    // console.log(pessoaObj);
+    // let pessoas = []
+
+    // for(let i = 0; i< 3;i++){
+        // pessoaObj = {
+        // nome: prompt('Nome: '),
+        // idade: Number(prompt('Idade: ')),
+        // }
+        // pessoas.push(pessoaObj)
+    //}
+
+    // console.log(pessoas);
+    //                 0                        1
+    //pessoas [{nome:maria,idade:35}, {nome:joão,idade:35}]
+
+    // console.log(pessoas[1].nome);
+    
+    //DOM - Seleção de elementos
+    
+    let divs = document.getElementsByTagName('div')
+    console.log(divs[2])
+
+    let divsCaixa = document.getElementsByClassName('caixa1')
+    console.log(divsCaixa)
+
+    let caixaEspecifica = document.getElementById('caixaEspecifica')
+    console.log(caixaEspecifica)
+
+    let caixas = document.querySelector('.caixa1 .sessao1')
+    console.log(caixas.innerText)
+
+    //caixas.innerText = '<h1>Novo texto</h1>'
+
+    caixas.innerHTML = '<h1>Novo texto</h1>'
+
+    let pessoas = []
+
+    function enviarDados(){
+        let name = document.getElementById('nome')
+        let age = document.getElementById('idade')
+
+        let pessoa = {
+            nome:name.value,
+            idade:age.value
+        }
+        pessoas.push(pessoa)
+
+        console.log(pessoas)
+
+        nome.value = ''
+        age.value = ''
+
+
+    }
+
+    // Crie dois inputs e um botão chamado trocar. Crie uma função que troca os valores dos inputs
+
+
+
+
+
+</script>
+
+</html>
