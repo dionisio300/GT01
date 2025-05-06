@@ -7,19 +7,32 @@
 </head>
 <body>
 
-    <img class="papelParede" id="imgMonitor" src="https://images.kabum.com.br/produtos/fotos/229561/monitor-gamer-aoc-legend-27-led-curvo-240-hz-full-hd-0-5ms-freesync-premium-120-srgb-hdmi-displayport-c27g2ze_1632937087_gg.jpg" >
+    <!-- <img class="papelParede" id="imgMonitor" src="https://images.kabum.com.br/produtos/fotos/229561/monitor-gamer-aoc-legend-27-led-curvo-240-hz-full-hd-0-5ms-freesync-premium-120-srgb-hdmi-displayport-c27g2ze_1632937087_gg.jpg" >
 
     <br>
     <input id="inputA" type="text" placeholder="Input A">
 
     <br>
 
-    <input type="text" name="" id="inputB" placeholder="Input B">
+    <input type="text" name="" id="inputB" placeholder="Input B"> -->
+
+    <div ondblclick="clicou()" id="caixa1" style="background-color: aqua; width: 300px; height: 300px;">
+        <button onclick="inserirImagem()">Inserir Imagem</button>
+    </div>
+
+    <input id="inputA" type="text" onkeypress="" placeholder="Digite algo"><br>
+    Números: <input id="numero" type="text" onkeypress=""><br>
+    Letras: <input id="letras" type="text" onkeypress=""><br>
+
 
     
 </body>
 
 <script>
+    function clicou(){
+        alert('Clicou')
+    }
+
 // Selecionar os elementos no DOM
 /*
 document.getElementById('ID do elemento')
@@ -55,19 +68,69 @@ elemento.ClassList.remove('Classe') - Remove uma classe
 elemento.ClassList.toggle('Classe') - Liga e desliga uma classe
 elemento.ClassList.contains('Classe') - Verifica a classe do elemento
 
+Criação de elementos HTML com o JS
+document.createElement('tag')
 
+Inserção de elementos 
+elemento.appendChild(novoElemento)
 
 */
 
-let imagem = document.getElementById('imgMonitor')
-imagem.setAttribute('width','300px')
-console.log(imagem.getAttribute('alt'))
-console.log(imagem.classList.contains('papelParede'))
+// function inserirImagem(){
 
-let inputA = document.getElementById('inputA')
-let inputB = document.getElementById('inputB')
+//     let novaImagem2 = document.getElementById('novaImagem')
+//     console.log(novaImagem2)
 
-inputB.focus()
+//     if(novaImagem2){
+//         console.log('Elemento Existe');
+//     }else{
+//         let div = document.getElementById('caixa1')
+
+//         let urlImg = "https://images.kabum.com.br/produtos/fotos/229561/monitor-gamer-aoc-legend-27-led-curvo-240-hz-full-hd-0-5ms-freesync-premium-120-srgb-hdmi-displayport-c27g2ze_1632937087_gg.jpg"
+
+//         let novaImagem = document.createElement('img')
+//         novaImagem.setAttribute('src',urlImg)
+//         novaImagem.setAttribute('width','300px')
+//         novaImagem.setAttribute('id','novaImagem')
+//         div.appendChild(novaImagem)
+
+
+//         novaImagem2 = document.getElementById('novaImagem')
+//         console.log(novaImagem)
+
+//         console.log(novaImagem2)
+//     }
+// }
+
+// let imagem = document.getElementById('imgMonitor')
+// imagem.setAttribute('width','300px')
+// console.log(imagem.getAttribute('alt'))
+// console.log(imagem.classList.contains('papelParede'))
+
+// let inputA = document.getElementById('inputA')
+// let inputB = document.getElementById('inputB')
+
+// inputB.focus()
+
+// Eventos
+
+// Mouse
+/*
+    onclick(função()) - Clique com o botão esquerdo
+    ondblclick(função()) - Clique duplo
+    onmousedown() - Assim que aperta o botão esquerdo
+    onmouseover() - Quando o mouse passa por cima do elemento
+    onmouseleave() - Quando o mouse deixa o local
+*/
+
+// Eventos de Teclado
+/*
+onkeydown() - Tecla é pressionado (Inclui teclas de função)
+onkeyup() - Tecla é solta
+onkeypress() - Tecla pressionada (Caracteres visíveis)
+*/
+
+
 
 </script>
 
