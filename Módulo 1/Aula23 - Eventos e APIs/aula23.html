@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos e APIs</title>
+</head>
+<body>
+
+    <img class="papelParede" id="imgMonitor" src="https://images.kabum.com.br/produtos/fotos/229561/monitor-gamer-aoc-legend-27-led-curvo-240-hz-full-hd-0-5ms-freesync-premium-120-srgb-hdmi-displayport-c27g2ze_1632937087_gg.jpg" >
+
+    <br>
+    <input id="inputA" type="text" placeholder="Input A">
+
+    <br>
+
+    <input type="text" name="" id="inputB" placeholder="Input B">
+
+    
+</body>
+
+<script>
+// Selecionar os elementos no DOM
+/*
+document.getElementById('ID do elemento')
+document.getElementsByClassName('Classe dos elementos') - Mais de um elemento []
+document.getElementsByTagName('tag dos elementos') - Seleciona os elementos pela tag[]
+document.querySelector('Seletor CSS') - seleciona o primeiro elemento por meio do seletor
+document.querySelectorAll('Seletor CSS') - Seleciona todos os elementos por meio do seletor
+*/
+
+// Alteração de conteúdo do HTML
+
+/*
+Alterar o texto
+elemento.innerText - Altera o coteúdo textual do elemento
+elemento.innerHTML - Altera o coteúdo HTML do elemento
+
+Alteração em formularios
+elementoFormulario.value - valor contido no elemento
+elementoFormulario.focus() - O elemento fica em foco
+elementoFormulario.blur() - Remove o foco do elemento
+
+
+Alterar atributos
+elemento.setAttribute('atributo','valor') - Adiciona um novo atributo
+elemento.removeAttribute('Atributo') - Remove um atributo
+elemtno.getAttribute('atributo') - Retornar o valor de um atributo
+
+Aletrar o CSS dos elementos
+elemento.style.propriedade = valor - Altera o CSS do elemento
+elemento.ClassList - Retorna a lista de classes desse elemento
+elemento.ClassList.add('Classe') - Adiciona uma classe
+elemento.ClassList.remove('Classe') - Remove uma classe
+elemento.ClassList.toggle('Classe') - Liga e desliga uma classe
+elemento.ClassList.contains('Classe') - Verifica a classe do elemento
+
+
+
+*/
+
+let imagem = document.getElementById('imgMonitor')
+imagem.setAttribute('width','300px')
+console.log(imagem.getAttribute('alt'))
+console.log(imagem.classList.contains('papelParede'))
+
+let inputA = document.getElementById('inputA')
+let inputB = document.getElementById('inputB')
+
+inputB.focus()
+
+</script>
+
+</html>
