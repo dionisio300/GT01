@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funções Assíncronas e APIs</title>
+</head>
+
+<body>
+
+<div id="imagens">
+
+</div>
+    
+</body>
+
+<script>
+    // function fazerAlgoAssincrono(outraFuncao){
+    //     console.log('Iniciando operação')
+    //     setTimeout(() => {
+    //         console.log('A operação foi concluída')
+    //         outraFuncao()
+    //     },2000)
+    // }
+
+    // fazerAlgoAssincrono(() => {
+    //     console.log('Iniciando nova atividade');
+    // })
+
+    // console.log('A página ainda está em execução')
+    // console.log('A página ainda está em execução')
+    // console.log('A página ainda está em execução')
+
+
+    let pessoa = {
+        nome: "Káthia",
+        idade: 29,
+        cidade: "Maceió",
+        apresentar: function(){
+            alert(`Olá meu nome é ${pessoa.nome}, tenho ${pessoa.idade}`)
+            }
+    };
+
+    let pessoaJSON = JSON.stringify(pessoa)
+    console.log(pessoa)
+    console.log(pessoaJSON)
+
+    let carroJSON = '{"modelo":"Ka","marca":"ford","ano":2025}'
+    let carro = JSON.parse(carroJSON)
+
+    console.log(carroJSON,carro)
+
+    fetch('https://fakestoreapi.com/products')
+    .then(response => response.json())
+    .then((dados) =>{
+        dados.forEach((dado) => {
+            let divProduto = document.createElement('div')
+            let tituloProduto = document.createElement('h3')
+            let imagemProduto = document.createElement('img')
+
+            let divPrincipal = document.getElementById('imagens')
+
+            tituloProduto.innerText = dado.title
+            imagemProduto.setAttribute('src',dado.image)
+            imagemProduto.setAttribute('width','200px')
+            divProduto.appendChild(tituloProduto)
+            divProduto.appendChild(imagemProduto)
+
+            divPrincipal.appendChild(divProduto)
+        })
+    });
+
+
+
+
+</script>
+
+
+</html>
