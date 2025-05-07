@@ -14,17 +14,14 @@
 <script>
 
     //{chave:"valor",chave2:3}
-    let resposta = fetch('https://fakestoreapi.com/productss')
+    let resposta = fetch('https://fakestoreapi.com/products')
     .then(response => response.json())
     .then((resp) => {
-        
         console.log(resp)
-
         let tituloPreco = resp.map((produto) => {
             return {titulo:produto.title, preco: produto.price}
         })
         console.log(tituloPreco)
-
         return tituloPreco
     })
     .then((resp) => {
