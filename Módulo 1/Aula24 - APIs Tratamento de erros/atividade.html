@@ -23,6 +23,13 @@
 
 <script>
 
+function mostrarProdutos(){
+    fetch('https://fakestoreapi.com/products')
+    .then(resp => resp.json())
+    .then((resp) => {
+        console.log(resp)
+    })
+}
 
 </script>
 
