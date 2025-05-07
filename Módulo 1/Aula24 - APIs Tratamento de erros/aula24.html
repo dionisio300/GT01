@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch e then</title>
+</head>
+
+<body>
+    
+    
+</body>
+
+<script>
+
+    //{chave:"valor",chave2:3}
+    let resposta = fetch('https://fakestoreapi.com/productss')
+    .then(response => response.json())
+    .then((resp) => {
+        
+        console.log(resp)
+
+        let tituloPreco = resp.map((produto) => {
+            return {titulo:produto.title, preco: produto.price}
+        })
+        console.log(tituloPreco)
+
+        return tituloPreco
+    })
+    .then((resp) => {
+        console.log(resp)
+    })
+    .catch((erro) => {
+        console.log(erro)
+    })
+
+    let array = []
+
+    let obj = {}
+
+    console.log(array)
+
+    console.log(obj)
+
+
+</script>
+
+</html>
