@@ -35,6 +35,8 @@ function mostrarProdutos(){
         let imagem = document.createElement('img')
         let preco = document.createElement('p')
         let descricao = document.createElement('p')
+        let botaoAnterior = document.createElement('button')
+        let botaoProximo = document.createElement('button')
 
         let nomeProduto = document.createElement('h3')
 
@@ -44,6 +46,8 @@ function mostrarProdutos(){
         imagem.setAttribute('width','100%')
         preco.innerText = `Preço: ${resp[0].price}` 
         descricao.innerHTML = `Descrição: ${resp[0].description}`
+        botaoAnterior.innerHTML = 'Anterior'
+        botaoProximo.innerHTML = 'Proximo'
         
 
         // foi anexado os elementos criados à divProduto
@@ -51,6 +55,8 @@ function mostrarProdutos(){
         divProduto.appendChild(imagem)
         divProduto.appendChild(preco)
         divProduto.appendChild(descricao)
+        divProduto.appendChild(botaoAnterior)
+        divProduto.appendChild(botaoProximo)
 
         //selecionei a div externa
         let divConteudo = document.getElementById('conteudo')
