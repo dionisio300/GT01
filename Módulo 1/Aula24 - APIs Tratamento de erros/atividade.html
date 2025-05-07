@@ -8,12 +8,14 @@
 </head>
 <body>
     <div class="container">
-        <div class="row justify-content-center">
+        <div id="conteudo" class="row justify-content-center">
 
             <div class="col-8 mt-5 text-center rounded-3 border border-black p-5">
                 <h1>Mostrar produtos</h1>
                 <button class="btn btn-success mt-5" onclick="mostrarProdutos()"> Iniciar </button>
             </div>
+
+
 
         </div>
     </div>
@@ -27,8 +29,42 @@ function mostrarProdutos(){
     fetch('https://fakestoreapi.com/products')
     .then(resp => resp.json())
     .then((resp) => {
-        console.log(resp)
+        // Criamos a DIV e H3
+        let divProduto = document.createElement('div')
+        divProduto.classList.add('col-8', 'mt-5', 'text-center,', 'rounded-3' ,'border', 'border-black' ,'p-5')
+        let imagem = document.createElement('img')
+        let preco = document.createElement('p')
+        let descricao = document.createElement('p')
+
+        let nomeProduto = document.createElement('h3')
+
+        // Foi atribuido o nome do produto à div h3
+        nomeProduto.innerHTML = resp[0].title
+        imagem.setAttribute('src',resp[0].image)
+        imagem.setAttribute('width','100%')
+        preco.innerText = `Preço: ${resp[0].price}` 
+        descricao.innerHTML = `Descrição: ${resp[0].description}`
+        
+
+        // foi anexado os elementos criados à divProduto
+        divProduto.appendChild(nomeProduto)
+        divProduto.appendChild(imagem)
+        divProduto.appendChild(preco)
+        divProduto.appendChild(descricao)
+
+        //selecionei a div externa
+        let divConteudo = document.getElementById('conteudo')
+
+        // anexei a div criada à div externa
+        divConteudo.appendChild(divProduto)
+
+
+
+
+
+
     })
+    .catch((erro) => console.log(erro))
 }
 
 </script>
