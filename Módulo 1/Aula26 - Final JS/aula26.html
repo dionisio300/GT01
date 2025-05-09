@@ -7,6 +7,9 @@
 </head>
 <body>
     <h2>Cadastrar</h2>
+    <label for="id_usuario">ID: </label>
+    <input type="text" id="id_usuario" name="id_usuario"><br><br>
+
     <label for="nome">Nome: </label>
     <input type="text" id="nome" name="nome"><br><br>
 
@@ -16,14 +19,36 @@
     <button id="btnEnviar">Enviar</button>
 
     <h2>Buscar</h2>
+    <label for="id">ID: </label>
+    <input type="text" id="id" name="id"><br><br>
+
+    <button onclick="buscarUsuario()" id="btnBuscar">Buscar</button>
+
+    <div id="resultadoBusca">
+
+    </div>
+
+    <h2>Deletar</h2>
+    <label for="id_del">ID: </label>
+    <input type="text" id="id_del" name="id_del"><br><br>
+
+    <button id="btnDeletar">Deletar</button>
+
+    <div id="resultadoDelete">
+
+    </div>
+
+
 </body>
 
 <script>
 let botao = document.getElementById('btnEnviar')
 let index = 0
+
 botao.addEventListener('click',() =>{
     let nome = document.getElementById('nome').value
     let cpf = document.getElementById('cpf').value
+    let id = document.getElementById('id_usuario').value
     let pessoa = {
         nome:nome,
         cpf:cpf
@@ -32,9 +57,43 @@ botao.addEventListener('click',() =>{
     pessoa = JSON.stringify(pessoa)
     console.log(pessoa)
 
-    localStorage.setItem(index,pessoa)
+    localStorage.setItem(id,pessoa)
 
     index += 1
+})
+
+function buscarUsuario(){
+    let id = document.getElementById('id').value
+
+    let usuarioJSON = localStorage.getItem(id)
+
+    let usuarioOBJ = JSON.parse(usuarioJSON)
+
+    console.log(usuarioOBJ)
+
+    let div = document.getElementById('resultadoBusca')
+    try{
+        div.innerHTML = `
+    <h2>Resultado da busca </h2>
+    <h3>Nome: ${usuarioOBJ.nome} </h3>
+    <h3>CPF: ${usuarioOBJ.cpf} </h3>
+    `
+    }catch (erro){
+        div.innerHTML = `
+        Esse ID não pertence a nenhum usuário!!
+    `
+    }
+    
+}
+
+let botaoDeletar = document.getElementById('btnDeletar')
+
+botaoDeletar.addEventListener('click',()=>{
+    let id = document.getElementById('id_del').value
+    localStorage.removeItem(id)
+
+    let div = document.getElementById('resultadoDelete')
+    div.innerHTML = `O usuário de ID ${id} foi removido!!`
 
 })
 
