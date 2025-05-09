@@ -12,18 +12,45 @@
 
             <div class="col-8 mt-5 text-center rounded-3 border border-black p-5">
                 <h1>Mostrar produtos</h1>
-                <button class="btn btn-success mt-5" onclick="mostrarProdutos()"> Iniciar </button>
+                <button class="btn btn-success mt-5" onclick="mostrarCard()"> Iniciar </button>
             </div>
 
-
-
         </div>
+
+        <div id="cardProduto" class="row justify-content-center d-none">
+            <div class="col-8">
+                <div class="card" style="width: 18rem;">
+                    <img id="imagemCard" src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Card title</h5>
+                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
+                      <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
     </div>
     
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
 
 <script>
+
+    function mostrarCard(){
+        fetch('https://fakestoreapi.com/products')
+        .then(resp => resp.json())
+        .then((resp) => {
+            let cardProduto = document.getElementById('cardProduto')
+            cardProduto.classList.remove('d-none')
+
+            let imagem = document.getElementById('imagemCard')
+            imagemCard.src = resp[0].image
+
+        })
+        
+    }
 
 function mostrarProdutos(){
     fetch('https://fakestoreapi.com/products')
