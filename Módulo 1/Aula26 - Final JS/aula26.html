@@ -72,18 +72,11 @@ function buscarUsuario(){
     console.log(usuarioOBJ)
 
     let div = document.getElementById('resultadoBusca')
-    try{
-        div.innerHTML = `
+    div.innerHTML = `
     <h2>Resultado da busca </h2>
     <h3>Nome: ${usuarioOBJ.nome} </h3>
     <h3>CPF: ${usuarioOBJ.cpf} </h3>
     `
-    }catch (erro){
-        div.innerHTML = `
-        Esse ID não pertence a nenhum usuário!!
-    `
-    }
-    
 }
 
 let botaoDeletar = document.getElementById('btnDeletar')
