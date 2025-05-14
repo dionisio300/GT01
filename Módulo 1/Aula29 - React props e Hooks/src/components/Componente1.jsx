@@ -1,7 +1,8 @@
 
 
-const Componente1 = (props) => {
 
+const Componente1 = (props) => {
+  
   return (
     <div>
         <h1>Lista de Clientes cadastrados:</h1>
