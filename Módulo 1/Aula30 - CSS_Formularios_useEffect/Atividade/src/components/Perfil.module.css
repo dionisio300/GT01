@@ -1,0 +1,31 @@
+.card {
+  background-color: #f8f8f8;
+  padding: 20px;
+  margin: 30px auto;
+  width: 300px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.imagem {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.nome {
+  font-size: 1.5rem;
+  margin: 10px 0 5px;
+}
+
+.profissao {
+  color: #666;
+  margin: 0;
+}
+
+.bio {
+  font-size: 0.95rem;
+  margin-top: 10px;
+}

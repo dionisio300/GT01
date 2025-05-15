@@ -1,0 +1,29 @@
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  margin-bottom: 500px;
+}
+
+h1{
+  color: red;
+}
+p{
+  background-color: black;
+  color: green;
+  padding: 15px;
+}
+
+.paragrafo2{
+  color: red;
+}
+
+
+
+
+
+
