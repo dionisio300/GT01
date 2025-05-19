@@ -265,7 +265,6 @@ function App() {
   // }
 
 let [modoEscuro,setModoEscuro] = useState(false)
-
   function trocarTema(){
     let estilo = {
       backgroundColor: modoEscuro ? 'white' : 'black',
@@ -275,15 +274,12 @@ let [modoEscuro,setModoEscuro] = useState(false)
     }
     return estilo
   }
-
   function trocarModo(){
-
     if(modoEscuro == true){
       setModoEscuro(false)
     }else{
       setModoEscuro(true)
     }
-
   }
 
   return (
