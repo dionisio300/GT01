@@ -6,7 +6,7 @@ import Navbar from './components/Navbar'
 import { BrowserRouter } from 'react-router-dom'
 import AppRoutes from './routes/AppRoutes'
 import { UserProvider } from './contexts/UserContext'
-
+//teste
 function App() {
   return (
     <>
