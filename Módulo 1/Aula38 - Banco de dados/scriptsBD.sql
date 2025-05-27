@@ -18,7 +18,7 @@ data_cadastro datetime default(current_timestamp())
 create table produtos (
 id int primary key auto_increment,
 nome varchar(100) not null,
-decricao text not null,
+descricao text not null,
 preco decimal(10,2) not null,
 estoque int default(0),
 categoria varchar(50),
@@ -27,6 +27,32 @@ ativo boolean default true
 
 -- CREATE, READ, UPDATE, DELETE
 -- create
+
+INSERT INTO produtos (nome, descricao, preco, estoque, categoria, ativo) VALUES
+('Smartphone X200', 'Celular com 128GB, câmera dupla e processador octa-core.', 1999.90, 50, 'Eletrônicos', TRUE),
+('Camiseta Polo Azul', 'Camiseta polo 100% algodão, tamanho M.', 89.90, 100, 'Roupas', TRUE),
+('Notebook Gamer R9', 'Notebook com RTX 3060 e 16GB RAM.', 6499.00, 30, 'Eletrônicos', TRUE),
+('Livro - Inteligência Artificial', 'Livro técnico sobre fundamentos da IA.', 120.00, 20, 'Livros', TRUE),
+('Chocolate ao Leite 90g', 'Chocolate cremoso com 40% cacau.', 5.50, 200, 'Alimentos', TRUE),
+('Fone Bluetooth Pro', 'Fone de ouvido com cancelamento de ruído.', 299.99, 75, 'Eletrônicos', TRUE),
+('Calça Jeans Skinny', 'Calça jeans azul escuro, tamanho 42.', 139.00, 60, 'Roupas', TRUE),
+('Tênis Esportivo Runner', 'Tênis para corrida, leve e confortável.', 199.90, 40, 'Calçados', TRUE),
+('TV 50" 4K Ultra HD', 'Smart TV com acesso a aplicativos de streaming.', 2599.90, 15, 'Eletrônicos', TRUE),
+('Café Gourmet 500g', 'Café moído premium de torra média.', 28.90, 80, 'Alimentos', TRUE),
+('Mouse Gamer RGB', 'Mouse com iluminação e 6 botões programáveis.', 159.00, 120, 'Informática', TRUE),
+('Blusa de Frio Feminina', 'Blusa com capuz e forro térmico.', 179.90, 35, 'Roupas', TRUE),
+('Geladeira Inverter 400L', 'Eletrodoméstico com economia de energia.', 3899.00, 10, 'Eletrodomésticos', TRUE),
+('Bola de Futebol Oficial', 'Bola tamanho padrão da FIFA.', 99.90, 45, 'Esportes', TRUE),
+('Creme Hidratante 200ml', 'Hidratante com fragrância de lavanda.', 22.50, 150, 'Beleza', TRUE),
+('Livro - O Senhor dos Anéis', 'Trilogia completa em edição especial.', 189.90, 25, 'Livros', TRUE),
+('Panela Antiaderente 5L', 'Panela grande com revestimento cerâmico.', 89.00, 60, 'Utensílios Domésticos', TRUE),
+('Perfume Floral 100ml', 'Fragrância feminina suave e marcante.', 139.99, 70, 'Beleza', TRUE),
+('Cadeira Gamer Confort', 'Cadeira com ajuste de altura e apoio lombar.', 899.00, 12, 'Móveis', TRUE),
+('Tablet 10.1" Wi-Fi', 'Tablet com Android 12 e 64GB de memória.', 1149.00, 25, 'Eletrônicos', TRUE);
+
+
+
+
 insert into clientes (nome,descricao,email,telefone,data_nascimento,genero) values
 ('Ana','desc1','ana@mail.com','9898989898','2020-04-15','F');
 
@@ -65,14 +91,47 @@ select nome,email from clientes;
 select * from clientes where genero = 'O';
 select id,nome, email, data_cadastro from clientes where id > 30;
 
-
-
 -- update
 
 update clientes set email = 'isabela2@mail.com' where id = 31;
 update clientes set nome = 'Ana Lucia';
+update clientes set descricao = 'Não falamos do Bruno' where nome = 'Bruno';
 
-update clientes set descricao = 'Não falamos do Bruno' where nome = 'Bruno'
+
+-- delete
+select * from clientes;
+delete from clientes where id = 42;
+
+
+
+-- SELECTs
+
+select * from clientes;
+select * from produtos;
+
+-- Where por igualdade
+select * from produtos where categoria = 'Roupas';
+
+-- Where por like
+
+
+-- Where por faixa de datas
+
+
+-- Where por comparação numérica
+
+
+-- Where por in e not in
+
+
+-- Where por is null ou is not null
+
+
+-- Where por operadores lógicos
+
+
+
+
 
 
 
