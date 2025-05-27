@@ -111,17 +111,40 @@ select * from produtos;
 
 -- Where por igualdade
 select * from produtos where categoria = 'Roupas';
+select * from clientes where genero = 'M';
+select * from clientes where genero = 'F';
 
 -- Where por like
-
+select nome, preco,descricao from produtos where descricao like 'Tri%';
+select nome, preco,descricao from produtos where nome like '%l';
+select nome, preco,descricao from produtos where descricao like '%com%';
 
 -- Where por faixa de datas
+select * from clientes;
+select * from produtos;
 
+
+select nome, telefone,data_cadastro from
+clientes where data_nascimento > '1995-01-01';
+
+select nome, telefone,data_cadastro,data_nascimento from
+clientes where year(data_nascimento) > '1995';
+
+select nome, telefone,data_cadastro from
+clientes where data_nascimento between '1995-01-01' and '2000-01-01';
 
 -- Where por comparação numérica
+select * from clientes;
+select * from produtos;
 
+select nome, preco from produtos where preco < 500;
+select nome, preco from produtos where preco between 1000 and 2000;
 
 -- Where por in e not in
+
+select * from produtos where categoria in ('Roupas','Livros');
+select * from produtos where categoria not in ('Roupas','Livros');
+
 
 
 -- Where por is null ou is not null
