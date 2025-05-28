@@ -161,3 +161,26 @@ select * from produtos where categoria = 'roupas' and preco >= 100;
 select * from produtos where categoria = 'eletronicos' or preco > 1000;
 update produtos set ativo = false where id in (1,5,7,9);
 select * from produtos where not ativo;
+
+
+/*
+1. Crie uma tabela chamada Funcionarios com os seguintes campos:
+id (inteiro, chave primária)
+nome (texto até 100 caracteres)
+cargo (texto até 50 caracteres)
+salario (decimal com duas casas)
+data_contratacao (data (dia, mês e ano))
+ativo (booleano)
+
+2. Crie uma tabela chamada Produtos com os campos:
+id (inteiro, chave primária)
+nome (texto até 80 caracteres)
+preco (decimal com duas casas)
+estoque (inteiro)
+
+
+
+
+
+
+*/
