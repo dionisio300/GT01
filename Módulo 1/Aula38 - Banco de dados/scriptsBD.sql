@@ -164,6 +164,8 @@ select * from produtos where not ativo;
 
 
 /*
+crie um novo banco de dados chamado loja1
+
 1. Crie uma tabela chamada Funcionarios com os seguintes campos:
 id (inteiro, chave primária)
 nome (texto até 100 caracteres)
@@ -178,9 +180,16 @@ nome (texto até 80 caracteres)
 preco (decimal com duas casas)
 estoque (inteiro)
 
+3. Insira 10 registros na tabela Funcionarios com dados fictícios de diferentes cargos e salários.
 
+4. Insira 10 produtos na tabela Produtos, com pelo menos um deles com preço acima de 100 e um com estoque zerado.
 
+5. Exiba todos os produtos cadastrados na tabela Produtos.
 
+6. Mostre os nomes e cargos dos funcionários contratados após 01/01/2022.
 
+7. Liste os funcionários cujo cargo contenha a palavra "Analista".
+
+8. Mostre os funcionários com salário entre 2500 e 4000.
 
 */
