@@ -148,13 +148,16 @@ select * from produtos where categoria not in ('Roupas','Livros');
 
 
 -- Where por is null ou is not null
+select * from clientes;
+select * from produtos;
 
+update produtos set categoria = null where id in (9,10,15);
+select* from produtos where categoria is null;
+select * from produtos where categoria is not null;
 
 -- Where por operadores lógicos
-
-
-
-
-
-
-
+select * from produtos where categoria = 'roupas' and preco <= 100;
+select * from produtos where categoria = 'roupas' and preco >= 100;
+select * from produtos where categoria = 'eletronicos' or preco > 1000;
+update produtos set ativo = false where id in (1,5,7,9);
+select * from produtos where not ativo;
