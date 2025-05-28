@@ -192,4 +192,13 @@ estoque (inteiro)
 
 8. Mostre os funcionários com salário entre 2500 e 4000.
 
+9. A empresa decidiu aumentar o salário de todos os funcionários com cargo "Analista" em R$ 300,00.
+Atualize os salários desses funcionários.
+
+10. O funcionário com id = 4 pediu demissão. Atualize seu status para inativo.
+
+11. Exclua todos os funcionários contratados antes de 01/01/2021.
+
+12. A empresa decidiu desligar todos os funcionários com salário acima de 5000.
+Remova esses registros da tabela.
 */
