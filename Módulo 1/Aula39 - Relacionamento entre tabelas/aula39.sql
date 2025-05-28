@@ -92,7 +92,7 @@ create table cursos (
 CREATE Table matricula (
     id_aluno int,
     id_curso int,
-    data_matricula date,
+    data_matricula date default(current_date()),
     PRIMARY KEY(id_aluno,id_curso),
     Foreign Key (id_aluno) REFERENCES alunos(id),
     Foreign Key (id_curso) REFERENCES cursos(id)
@@ -107,7 +107,29 @@ INSERT into alunos (nome) VALUES
 ('Wellington'),
 ('Ulisses'),
 ('Caio'),
-('Luis')
+('Luis');
+
+select * from alunos;
+select * from cursos;
+select * from matricula;
+insert into matricula (id_aluno, id_curso) values 
+(1,3),
+(1,2),
+(2,1),
+(2,3),
+(3,1),
+(4,2),
+(5,3),
+(6,1),
+(7,2);
+
+-- Listar os cursos de um aluno
+
+select alunos.nome, cursos.nome, matricula.data_matricula
+from alunos
+join matricula on alunos.id = matricula.id_aluno
+join cursos on cursos.id = matricula.id_curso
+where alunos.nome = 'Carlos';
 
 
 
