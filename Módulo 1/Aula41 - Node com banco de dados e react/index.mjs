@@ -10,7 +10,7 @@ const conexao = mysql.createConnection({
     host:'localhost',
     user:'root',
     password:'1234',
-    database:'escola'
+    database:'escola1'
 })
 
 // Rotas com banco de dados
@@ -23,7 +23,19 @@ conexao.connect((erro) => {
     }
 })
 
-
+app.get('/usuariosEscola/:id',(req,res) => {
+    let id = req.params.id
+    let sql = `select nome,tipo,username from usuarios where id = ${id}`
+    conexao.query(sql, (erro,resultado) => {
+        if(erro){
+            console.log(`Erro ao realizar a consulta: ${erro}`)
+            return res.send(erro)
+        }else{
+            console.log(resultado)
+            return res.send(resultado)
+        }
+    })
+})
 
 
 let usuarios = [
