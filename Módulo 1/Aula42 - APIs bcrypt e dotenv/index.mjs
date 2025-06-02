@@ -15,6 +15,8 @@ const conexao = mysql.createConnection({
     database:process.env.DB_NAME
 })
 
+console.log("teste")
+
 // Rotas com banco de dados
 
 conexao.connect((erro) => {
