@@ -92,14 +92,37 @@ app.delete('/deletarUsuario/:id',(req,res) => {
     }   
 })
 
-
-
-
-
-
-
 app.listen(porta,() => {
     console.log(`Servidor rodando na porta ${porta}`)
 })
+
+
+
+/*
+Questão: Crie uma API RESTful para Gerenciar Alunos e suas Matrículas
+
+Crie uma rota GET em /alunosComTurma que retorne todos os alunos com as seguintes informações:
+
+nome completo do aluno (campo nome da tabela usuarios)
+matrícula
+data de nascimento
+nome da turma
+
+
+Crie uma rota POST em /cadastrarAluno que:
+
+insira o usuário na tabela usuarios com tipo = 'aluno'
+insira os dados do aluno na tabela alunos (relacionando com usuario_id recém-criado)
+
+
+Crie uma rota PUT em /atualizarAluno/:id que atualize a matrícula e o nome do aluno (nas tabelas usuarios e alunos), usando o id da tabela alunos.
+
+Crie uma rota DELETE em /deletarAluno/:id que:
+
+delete o aluno pela tabela alunos
+
+use o ON DELETE CASCADE já definido no banco para excluir também o respectivo usuario e quaisquer matriculas_disciplinas associadas
+
+*/
 
 
