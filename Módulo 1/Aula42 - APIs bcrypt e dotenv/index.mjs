@@ -1,16 +1,18 @@
 import express from 'express'
 import mysql from 'mysql2'
+import dotenv from 'dotenv'
 
+dotenv.config()
 const app = express()
-const porta = 3000
+const porta = process.env.DB_PORTA
 app.use(express.json())
 
 // Conexão com o MySql
 const conexao = mysql.createConnection({
-    host:'localhost',
-    user:'root',
-    password:'1234',
-    database:'escola1'
+    host:process.env.DB_HOST,
+    user:process.env.DB_USER,
+    password:process.env.DB_PASSWORD,
+    database:process.env.DB_NAME
 })
 
 // Rotas com banco de dados
@@ -53,8 +55,7 @@ app.get('/professoresCadastrados',(req,res)=>{
 1. Crie uma API que mostre os nomes dos professores com todas as turmas que cada professor tem.
 */
 app.get('/disciplinasProfessores',(req, res) => {
-    let sql = `SELECT usuarios.nome as nomeProf , disciplinas.nome as disciplina from usuarios JOIN
-    professores on usuarios.id = professores.usuario_id join disciplinas on disciplinas.professor_id = professores.id;`
+    let sql = `SELECT usuarios.nome as nomeProf , disciplinas.nome as disciplina from usuarios JOIN professores on usuarios.id = professores.usuario_id join disciplinas on disciplinas.professor_id = professores.id;`
 
     conexao.query(sql,(erro,resp) => {
         if(erro){
