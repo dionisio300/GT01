@@ -38,6 +38,8 @@ app.get('/usuariosEscola/:id',(req,res) => {
 })
 
 
+
+
 let usuarios = [
     {id:'1',nome:'Maria', ativo:true},
     {id:'2',nome:'João', ativo:true},

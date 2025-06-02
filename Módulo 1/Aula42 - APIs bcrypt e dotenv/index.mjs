@@ -38,6 +38,51 @@ app.get('/usuariosEscola/:id',(req,res) => {
 })
 
 
+app.get('/professoresCadastrados',(req,res)=>{
+    console.log('teste')
+    let sql = `select * from professores`
+    conexao.query(sql,(erro,result) => {
+        if(erro){
+            console.log(`Deu um erro: ${erro}`)
+        }else{
+            return res.json(result)
+        }
+    })
+})
+/*
+1. Crie uma API que mostre os nomes dos professores com todas as turmas que cada professor tem.
+*/
+app.get('/disciplinasProfessores',(req, res) => {
+    let sql = `SELECT usuarios.nome as nomeProf , disciplinas.nome as disciplina from usuarios JOIN
+    professores on usuarios.id = professores.usuario_id join disciplinas on disciplinas.professor_id = professores.id;`
+
+    conexao.query(sql,(erro,resp) => {
+        if(erro){
+            console.log(erro)
+        }else{
+            console.log(resp)
+            return res.json(resp)
+        }
+    })
+
+})
+
+
+/*
+2. Crie uma rota GET /alunos/:id/disciplinas que retorna o nome do aluno e uma lista com todas as disciplinas em que ele está matriculado, incluindo a data da matrícula e o nome do professor.
+
+3. Crie uma rota GET /alunos que retorna uma lista com os dados dos alunos, incluindo:
+id, nome, matrícula, data de nascimento, nome da turma e ano da turma.
+
+4. Crie uma rota GET /turmas/:id/alunos que retorna os alunos de uma turma específica, com nome, matrícula e data de nascimento.
+
+5. Crie uma rota GET /turmas/resumo que retorna todas as turmas com o número total de alunos matriculados em cada uma.
+*/
+
+
+
+
+
 let usuarios = [
     {id:'1',nome:'Maria', ativo:true},
     {id:'2',nome:'João', ativo:true},
