@@ -40,11 +40,76 @@ function conectarBanco(){
     return conexao
 }
 
-conectarBanco()
+
 
 app.get('/',(req,res) => {
     return res.send('API inicial')
 })
+
+app.get('/todosUsuarios',(req,res) =>{
+    const conexao = conectarBanco()
+    let sql = `select nome,tipo from usuarios`
+    conexao.query(sql,(e,result) => {
+        if(e){
+            console.log(`Deu erro: ${e}`)
+        }else{
+            return res.json(result)
+        }
+        conexao.end()
+    })
+})
+
+app.get('/todosAlunos',(req,res) =>{
+    const conexao = conectarBanco()
+    let sql = `select nome,tipo from usuarios where tipo = 'aluno'`
+    conexao.query(sql,(e,result) => {
+        if(e){
+            console.log(`Deu erro: ${e}`)
+        }else{
+            return res.json(result)
+        }
+        conexao.end()
+    })
+})
+
+app.get('/todosAlunos/:id',(req,res) =>{
+    const conexao = conectarBanco()
+    let id = req.params.id
+    let sql = `select * from usuarios where tipo = 'aluno' and id = ${id}`
+    conexao.query(sql,(e,result) => {
+        if(e){
+            console.log(`Deu erro: ${e}`)
+        }else{
+            return res.json(result)
+        }
+        conexao.end()
+    })
+})
+
+app.post('/cadastrarUsuario',async (req,res) => {
+    const conexao = conectarBanco()
+    let novoUsuario = req.body
+
+    novoUsuario.senha = await bcrypt.hash(novoUsuario.senha,10)
+
+    let sql = `insert into usuarios (username, senha, nome, ativo, tipo) values
+    ('${novoUsuario.username}','${novoUsuario.senha}','${novoUsuario.nome}',${novoUsuario.ativo},'${novoUsuario.tipo}')`
+
+    conexao.query(sql,(e,result) => {
+        if(e){
+            console.log(e)
+            return res.send('erro')
+        }else{
+            return res.send('Usuario Cadastrado!!')
+        }
+    })
+
+})
+
+
+
+
+
 
 
 app.listen(porta,()=>{
