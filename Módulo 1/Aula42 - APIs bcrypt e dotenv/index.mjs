@@ -1,6 +1,8 @@
 import express from 'express'
 import mysql from 'mysql2'
 import dotenv from 'dotenv'
+import bcrypt from 'bcrypt'
+
 
 dotenv.config()
 const app = express()
@@ -26,6 +28,27 @@ conexao.connect((erro) => {
         console.log('Banco conectado com sucesso!')
     }
 })
+
+
+
+app.post('/cadastrarUser', async (req, res)=>{
+    let novoUsuario = req.body
+    novoUsuario.senha = await bcrypt.hash(novoUsuario.senha,10)
+    console.log(novoUsuario)
+
+    let sql = `insert into usuarios (username,senha,nome,ativo,tipo) values ('${novoUsuario.username}','${novoUsuario.senha}','${novoUsuario.nome}',${novoUsuario.ativo},'${novoUsuario.tipo}')`
+
+    conexao.query(sql,(erro,result) => {
+        if(erro){
+            console.log(erro)
+        }else{
+            return res.send('Usuario cadastrado com sucesso!')
+        }
+    })
+})
+
+
+
 
 app.get('/usuariosEscola/:id',(req,res) => {
     let id = req.params.id
