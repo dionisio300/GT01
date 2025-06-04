@@ -16,11 +16,38 @@ import express from 'express'
 import mysql from 'mysql2'
 import dotenv from 'dotenv'
 import bcrypt from 'bcrypt'
+import { Sequelize,DataTypes } from 'sequelize'
 
-// Instanciar o express e criar a porta
 
 // utilizar o dotenv
 dotenv.config()
+
+
+const sequelize = new Sequelize(
+    process.env.DB_database,
+    process.env.DB_user,
+    process.env.DB_password,{
+        host:process.env.DB_host,
+        dialect:'mysql'
+    }
+)
+
+try{
+    await sequelize.authenticate()
+    console.log('Banco Conectado com sucesso!')
+}catch(e){
+    console.log(e)
+}
+
+
+
+
+
+
+
+// Instanciar o express e criar a porta
+
+
 
 const app = express()
 const porta = process.env.NODE_PORTA
