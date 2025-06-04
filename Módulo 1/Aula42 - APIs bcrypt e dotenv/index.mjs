@@ -47,9 +47,6 @@ app.post('/cadastrarUser', async (req, res)=>{
     })
 })
 
-
-
-
 app.get('/usuariosEscola/:id',(req,res) => {
     let id = req.params.id
     let sql = `select nome,tipo,username from usuarios where id = ${id}`

@@ -25,21 +25,89 @@ const sequelize = new Sequelize(
     process.env.DB_user,
     process.env.DB_password,{
         host:process.env.DB_host,
-        dialect:'mysql'
+        dialect:'mysql',
+        logging: console.log  // <<< Mostra os SQLs no console
     }
 )
-try{
+async function conectar() {
+    try{
     await sequelize.authenticate()
     console.log('Banco Conectado com sucesso!')
 }catch(e){
     console.log(e)
 }
+}
 
+conectar()
 /*
+create table turmas(
+    id int PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(50),
+    ano int
+);
 
+CREATE Table usuarios (
+    id int PRIMARY key AUTO_INCREMENT,
+    username VARCHAR(50) UNIQUE NOT NULL,
+    senha VARCHAR(255) not null,
+    nome varchar(100) not null,
+    ativo BOOLEAN DEFAULT true,
+    tipo ENUM ('admin','aluno','professor')
+);
 */
-// Definição dos módulos
-const Aluno = sequelize.define('Aluno',{
+// Definição dos modelos
+
+
+
+const Usuarios = sequelize.define('Usuarios',{
+    id:{
+        type: DataTypes.INTEGER,
+        primaryKey: true,
+        autoIncrement: true
+    },
+    username:{
+        type: DataTypes.STRING,
+        unique:true,
+        allowNull: false
+    },
+    senha: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+    nome:{
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+    ativo:{
+        type: DataTypes.BOOLEAN,
+        defaultValue: true
+    },
+    tipo:{
+        type: DataTypes.ENUM('admin','aluno','professor')
+    }
+},{
+    timestamps:false
+})
+
+const Turmas = sequelize.define('turmas',{
+    id: {
+        type: DataTypes.INTEGER,
+        primaryKey:true,
+        autoIncrement:true
+    },
+    nome:{
+        type: DataTypes.STRING,
+    },
+    ano: {
+        type: DataTypes.INTEGER
+    }
+},{
+    timestamps: false 
+})
+
+
+// Tabela de alunos
+const Alunos = sequelize.define('alunos',{
     id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
@@ -64,11 +132,9 @@ const Aluno = sequelize.define('Aluno',{
         references: {model:'Turmas', key:'id'},
         onDelete: 'CASCADE'
     }
+},{
+    timestamps: false 
 })
-
-
-
-
 
 // Instanciar o express e criar a porta
 const app = express()
@@ -76,8 +142,10 @@ const porta = process.env.NODE_PORTA
 // Trabalhar com os dados em json
 app.use(express.json())
 
-app.get('/',(req,res) => {
-    return res.send('API inicial')
+app.get('/', async (req,res) => {
+    let turmas = await Alunos.findAll()
+    console.log(turmas)
+    return res.send(turmas)
 })
 
 
