@@ -19,6 +19,7 @@ import bcrypt from 'bcrypt'
 import { Sequelize,DataTypes } from 'sequelize'
 // utilizar o dotenv
 dotenv.config()
+// Sequelize
 const sequelize = new Sequelize(
     process.env.DB_database,
     process.env.DB_user,
@@ -34,10 +35,8 @@ try{
     console.log(e)
 }
 // Instanciar o express e criar a porta
-
 const app = express()
 const porta = process.env.NODE_PORTA
-
 // Trabalhar com os dados em json
 app.use(express.json())
 
