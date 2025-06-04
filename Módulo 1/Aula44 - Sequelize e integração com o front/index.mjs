@@ -34,6 +34,42 @@ try{
 }catch(e){
     console.log(e)
 }
+
+/*
+
+*/
+// Definição dos módulos
+const Aluno = sequelize.define('Aluno',{
+    id: {
+        type: DataTypes.INTEGER,
+        primaryKey: true,
+        autoIncrement: true
+    },
+    usuario_id:{
+        type:DataTypes.INTEGER,
+        unique: true,
+        references: {model:'Usuarios', key:'id'},
+        onDelete: 'CASCADE' /* SET NULL */
+    },
+    matricula:{
+        type: DataTypes.STRING,
+        allowNull: false,
+        unique:true
+    },
+    data_nascimento:{
+        type: DataTypes.DATEONLY
+    },
+    turma_id:{
+        type:DataTypes.INTEGER,
+        references: {model:'Turmas', key:'id'},
+        onDelete: 'CASCADE'
+    }
+})
+
+
+
+
+
 // Instanciar o express e criar a porta
 const app = express()
 const porta = process.env.NODE_PORTA
