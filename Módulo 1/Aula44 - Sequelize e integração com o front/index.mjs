@@ -148,6 +148,8 @@ app.get('/', async (req,res) => {
     return res.send(turmas)
 })
 
+/*teste*/
+
 
 
 app.listen(porta,()=>{
