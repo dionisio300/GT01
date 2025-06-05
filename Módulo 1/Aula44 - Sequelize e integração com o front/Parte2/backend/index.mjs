@@ -28,6 +28,7 @@ let users = [
     {id:2, nome:'João', email:'joao@gmail.com'},
     {id:3, nome:'Pedro', email:'pedro@gmail.com'}
 ]
+//teste
 
 app.get('/usuarios',(req,res) => {
     return res.json(users)
