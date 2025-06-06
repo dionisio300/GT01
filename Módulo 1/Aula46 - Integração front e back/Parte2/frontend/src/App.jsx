@@ -7,26 +7,19 @@ function App() {
   let [id,setId] = useState('')
   let [dadosUser, setDadosUser] = useState({nome:""})
 
-  let [mostrarUser,setMostrarUser] = useState(false)
-
-  function mostrarUsuarios(){
-    if(mostrar){
-      setMostrar(false)
-    }else{
-      setMostrar(true)
-    }
-  }
+  let [componente,setComponente] = useState()
 
 
   return (
     <>
       <h1>Selecione uma opção</h1>
-      <button onClick={mostrarUsuarios}>Todos os Usuarios</button>
-      <h2>Digite o id do usuario</h2>
 
-      <input onChange={e => setId(e.target.value)} type="text" />
+      <button onClick={() => {setComponente()}}>Todos os Usuarios</button>  
+      <button>Exibir Usuario</button>
+      <button>Cadastrar Usuario</button>
+      <button>Atualizar dados</button>
+      <button>Deletar Usuario</button>
 
-      <button>Buscar Usuario</button>
 
       {mostrar ? <TodosUser/>:''}
       
