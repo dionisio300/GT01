@@ -14,13 +14,12 @@ function App() {
     <>
       <h1>Selecione uma opção</h1>
 
-      <button onClick={() => {setComponente()}}>Todos os Usuarios</button>  
-      <button>Exibir Usuario</button>
-      <button>Cadastrar Usuario</button>
-      <button>Atualizar dados</button>
-      <button>Deletar Usuario</button>
-
-
+      <button onClick={() => {setComponente('todos')}}>Todos os Usuarios</button>  
+      <button onClick={() => {setComponente('um')}}>Exibir Usuario</button>
+      <button onClick={() => {setComponente('cadastrar')}}>Cadastrar Usuario</button>
+      <button onClick={() => {setComponente('atualizar')}}>Atualizar dados</button>
+      <button onClick={() => {setComponente('deletar')}}>Deletar Usuario</button>
+      
       {mostrar ? <TodosUser/>:''}
       
 
