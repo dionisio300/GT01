@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import './App.css'
 import TodosUser from './components/TodosUser'
+import UsuarioEspecifico from './components/UsuarioEspecifico'
 
 function App() {
   let [mostrar,setMostrar] = useState(false)
@@ -19,8 +20,14 @@ function App() {
       <button onClick={() => {setComponente('cadastrar')}}>Cadastrar Usuario</button>
       <button onClick={() => {setComponente('atualizar')}}>Atualizar dados</button>
       <button onClick={() => {setComponente('deletar')}}>Deletar Usuario</button>
+      <button onClick={() => {setComponente('')}}>Limpar tela</button>
       
-      {mostrar ? <TodosUser/>:''}
+      <div>
+        {componente == 'todos' && <TodosUser/>}
+        {componente == 'um' && <UsuarioEspecifico/>}
+      </div>
+    
+      
       
 
     </>
