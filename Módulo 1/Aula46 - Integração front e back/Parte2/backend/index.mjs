@@ -53,8 +53,6 @@ app.get('/usuarios',(req,res) => {
         }
     })
 })
-
-
 app.get('/usuarios/:id',(req,res) => {
     let id = req.params.id
     let sql = `select * from usuarios where id = ${id}`
@@ -67,6 +65,23 @@ app.get('/usuarios/:id',(req,res) => {
     })
 
 })
+
+
+app.post('/cadastrarUsuario',(req,res) => {
+    let novoUsuario = req.body
+    let sql = `insert into usuarios (username, senha, nome, tipo, ativo) values ('${novoUsuario.username}', '${novoUsuario.senha}', '${novoUsuario.nome}','${novoUsuario.tipo}',${novoUsuario.ativo})`
+    conexao.query(sql,(erro,result) => {
+        try {
+            return res.send('Usuario cadastrado!')
+        }catch(error) {
+            console.log(error)
+            console.log(erro)
+        }
+    })
+})
+
+
+
 
 
 app.listen(porta, ()=>{

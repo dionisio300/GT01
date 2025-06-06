@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import './App.css'
 import TodosUser from './components/TodosUser'
 import UsuarioEspecifico from './components/UsuarioEspecifico'
+import CadastroUser from './components/CadastroUser'
 
 function App() {
   let [mostrar,setMostrar] = useState(false)
@@ -25,6 +26,12 @@ function App() {
       <div>
         {componente == 'todos' && <TodosUser/>}
         {componente == 'um' && <UsuarioEspecifico/>}
+        {componente == 'cadastrar' && <CadastroUser/>}
+
+        {/* Crie um componente para listar todos os professores */}
+        {/* Crie um componente para cadastrar um aluno */}
+        {/* Crie um componente para cadastrar um professor */}
+
       </div>
     
       
