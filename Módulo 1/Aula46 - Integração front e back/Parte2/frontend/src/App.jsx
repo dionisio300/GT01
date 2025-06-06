@@ -17,7 +17,12 @@ function App() {
     }
   }
 
-  
+  async function buscarUsuario(){
+    const resposta = await fetch(`http://localhost:3000/usuarios/${id}`)
+    const dados = await resposta.json()
+    setDadosUser(dados)
+    setMostrarUser(true)
+  }
 
   return (
     <>
@@ -30,7 +35,8 @@ function App() {
       <button onClick={buscarUsuario} >Buscar Usuario</button>
 
       {mostrar ? <TodosUser/>:''}
-      
+      {dadosUser.nome}
+      {mostrarUser ? dadosUser.nome:''}
 
     </>
   )
