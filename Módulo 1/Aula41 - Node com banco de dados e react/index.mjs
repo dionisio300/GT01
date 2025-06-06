@@ -14,7 +14,6 @@ const conexao = mysql.createConnection({
 })
 
 // Rotas com banco de dados
-
 conexao.connect((erro) => {
     if(erro){
         console.log(`Erro ao conectar com o banco: ${erro}`)
