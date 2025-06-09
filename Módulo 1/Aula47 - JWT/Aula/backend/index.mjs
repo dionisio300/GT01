@@ -28,7 +28,7 @@ const conexao = mysql.createConnection({
     host:'localhost',
     user:'root',
     password:'1234',
-    database:'escola1'
+    database:'sistema_gestao_escolar'
 })
 
 // Rotas com banco de dados
@@ -45,7 +45,26 @@ app.get('/',(req,res) => {
 })
 
 app.post('/verificarLogin', (req,res) => {
-    
+    let usuario = req.body
+    console.log(usuario)
+    let sql = `select * from usuarios where email = '${usuario.email}' and senha = '${usuario.senha}'`
+    conexao.query(sql,(erro, resultado) =>{
+        if(erro){
+            console.log(erro)
+            return res.status(500).json({erro: "Erro no servidor"})
+        }
+        console.log(resultado)
+
+        if(resultado.length > 0){
+            resultado = resultado[0]
+            console.log('Resultado encontrado')
+            
+        }else{
+            return res.status(401)
+        }
+    })
+
+    res.send('')
 })
 
 

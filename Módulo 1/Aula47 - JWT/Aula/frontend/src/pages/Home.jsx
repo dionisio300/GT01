@@ -8,11 +8,12 @@ const Home = () => {
     e.preventDefault();
     try {
 
-      const resposta = await fetch('http://localhost:3000/verificarLogin', { method: 'post', headers: { "Content-Type": "application/json" }, body: JSON.stringify({ email: email, senha: senha }) })
+      const resposta = await fetch('http://localhost:3000/verificarLogin', { method: 'POST', headers: { "Content-Type": "application/json" }, body: JSON.stringify({ email: email, senha: senha }) })
+
       const dados = await resposta.json()
       console(dados)
     } catch (error) {
-
+      console.log(error)
     }
   }
 
