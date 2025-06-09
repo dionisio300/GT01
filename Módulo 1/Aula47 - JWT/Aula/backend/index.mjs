@@ -44,6 +44,10 @@ app.get('/',(req,res) => {
     res.send('Servidor rodando')
 })
 
+app.post('/verificarLogin', (req,res) => {
+    
+})
+
 
 app.listen(porta, ()=>{
     console.log(`O servidor está rodando na porta ${porta}`)
