@@ -18,7 +18,7 @@ import cors from 'cors'
 import mysql from 'mysql2'
 import jwt from 'jsonwebtoken'
 
-const senhaJWT = '1234' 
+const senhaJWT = '1234'
 
 const app = express()
 app.use(cors())
@@ -28,64 +28,67 @@ const porta = 3000
 
 // Conexão com o MySql
 const conexao = mysql.createConnection({
-    host:'localhost',
-    user:'root',
-    password:'1234',
-    database:'sistema_gestao_escolar'
+    host: 'localhost',
+    user: 'root',
+    password: '1234',
+    database: 'sistema_gestao_escolar'
 })
 
 // Rotas com banco de dados
 conexao.connect((erro) => {
-    if(erro){
+    if (erro) {
         console.log(`Erro ao conectar com o banco: ${erro}`)
-    }else{
+    } else {
         console.log('Banco conectado com sucesso!')
     }
 })
 
-app.get('/',(req,res) => {
+app.get('/', (req, res) => {
     res.send('Servidor rodando')
 })
 
-app.post('/verificarLogin', (req,res) => {
+app.post('/verificarLogin', (req, res) => {
     let usuario = req.body
     console.log(usuario)
     let sql = `select * from usuarios where email = '${usuario.email}' and senha = '${usuario.senha}'`
-    conexao.query(sql,(erro, resultado) =>{
-        if(erro){
+    conexao.query(sql, (erro, resultado) => {
+        if (erro) {
             console.log(erro)
-            return res.status(500).json({erro: "Erro no servidor"})
+            return res.status(500).json({ erro: "Erro no servidor" })
         }
 
-        const usuario = resultado[0]
-        console.log(usuario)
 
-        //const token = jwt.sign({dados},senha,{opcoes})
-        const token = jwt.sign({
-            id:usuario.id,
-            nome:usuario.nome,
-            tipo:usuario.tipo_usuario
-        },senhaJWT,
-        {
-            expiresIn:'1h'
-        })
 
-        if(resultado.length > 0){
+        if (resultado.length > 0) {
+            const usuario = resultado[0]
+            console.log(usuario)
+
+            //const token = jwt.sign({dados},senha,{opcoes})
+            const token = jwt.sign({
+                id: usuario.id,
+                nome: usuario.nome,
+                tipo: usuario.tipo_usuario
+            }, senhaJWT,
+                {
+                    expiresIn: '1h'
+                })
             resultado = resultado[0]
             console.log('Resultado encontrado')
 
-            return res.status(200).json({token,usuario:{
-                id:usuario.id,
-                nome:usuario.nome,
-                tipo:usuario.tipo_usuario
-            }})
-        }else{
-            return res.status(401).json({erro:'erro'})
+            return res.status(200).json({
+                token, usuario: {
+                    id: usuario.id,
+                    nome: usuario.nome,
+                    tipo: usuario.tipo_usuario
+                }
+            })
+        } else {
+            return res.status(401).json({ erro: 'erro' })
         }
     })
 })
 
 
-app.listen(porta, ()=>{
+app.listen(porta, () => {
     console.log(`O servidor está rodando na porta ${porta}`)
 })

@@ -20,7 +20,17 @@ const Home = () => {
 
             localStorage.setItem("token",dados.token)
             localStorage.setItem("usuario",JSON.stringify(dados.usuario))
-            navigate('/perfil')
+
+            if(dados.usuario.tipo == 'admin'){
+                navigate('/admin')
+            }else if(dados.usuario.tipo == 'aluno'){
+                navigate('/aluno')
+            }else if(dados.usuario.tipo == 'professor'){
+                navigate('/professor')
+            }
+// ana.silva@escola.com   prof123
+// aluno01@escola.com     aluno123
+            
 
         } else { 
             console.warn("Erro de login:", dados.erro);
