@@ -10,8 +10,13 @@ const Home = () => {
 
       const resposta = await fetch('http://localhost:3000/verificarLogin', { method: 'POST', headers: { "Content-Type": "application/json" }, body: JSON.stringify({ email: email, senha: senha }) })
 
-      const dados = await resposta.json()
-      console(dados)
+      const dados = await resposta.json();
+
+        if (resposta.ok) {
+            console.log("Login bem-sucedido:", dados);
+        } else { 
+            console.warn("Erro de login:", dados.erro);
+        }
     } catch (error) {
       console.log(error)
     }

@@ -58,13 +58,11 @@ app.post('/verificarLogin', (req,res) => {
         if(resultado.length > 0){
             resultado = resultado[0]
             console.log('Resultado encontrado')
-            
+            return res.status(200).json(resultado)
         }else{
             return res.status(401)
         }
     })
-
-    res.send('')
 })
 
 
