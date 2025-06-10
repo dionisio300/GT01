@@ -5,10 +5,12 @@ const Perfil = () => {
 
     let {user, setUser} = useContext(UserContext)
 
+    let usuario = JSON.parse(localStorage.getItem('usuario'))
+
   return (
     <div>
-        Essa é a página do perfil do {user.nome}
-        <p>Esse é o email do {user.nome} = {user.email}</p>
+        Essa é a página do perfil do {usuario.nome}
+        <p>Esse é o email do {usuario.nome} = {usuario.tipo}</p>
     </div>
   )
 }

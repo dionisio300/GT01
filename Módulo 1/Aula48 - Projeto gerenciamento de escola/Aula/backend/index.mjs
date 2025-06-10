@@ -73,14 +73,14 @@ app.post('/verificarLogin', (req,res) => {
         if(resultado.length > 0){
             resultado = resultado[0]
             console.log('Resultado encontrado')
-            
+
             return res.status(200).json({token,usuario:{
                 id:usuario.id,
                 nome:usuario.nome,
                 tipo:usuario.tipo_usuario
             }})
         }else{
-            return res.status(401)
+            return res.status(401).json({erro:'erro'})
         }
     })
 })

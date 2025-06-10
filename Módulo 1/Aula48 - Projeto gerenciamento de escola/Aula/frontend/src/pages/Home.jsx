@@ -1,10 +1,11 @@
 import React, { useContext,useState } from 'react'
 import { UserContext } from '../contexts/UserContext'
+import { useNavigate } from 'react-router-dom'
 
 const Home = () => {
   let [email, setEmail] = useState()
   let [senha, setSenha] = useState()
-
+  let navigate = useNavigate()
   let {user, setUser} = useContext(UserContext)
   
   const fazerLogin = async (e) => {
@@ -14,10 +15,13 @@ const Home = () => {
       const resposta = await fetch('http://localhost:3000/verificarLogin', { method: 'POST', headers: { "Content-Type": "application/json" }, body: JSON.stringify({ email: email, senha: senha }) })
 
       const dados = await resposta.json();
-
         if (resposta.ok) {
             console.log("Login bem-sucedido:", dados);
-            setUser(dados)
+
+            localStorage.setItem("token",dados.token)
+            localStorage.setItem("usuario",JSON.stringify(dados.usuario))
+            navigate('/perfil')
+
         } else { 
             console.warn("Erro de login:", dados.erro);
         }
