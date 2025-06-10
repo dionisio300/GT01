@@ -1,9 +1,12 @@
-import React, { useState } from 'react'
+import React, { useContext,useState } from 'react'
+import { UserContext } from '../contexts/UserContext'
 
 const Home = () => {
   let [email, setEmail] = useState()
   let [senha, setSenha] = useState()
 
+  let {user, setUser} = useContext(UserContext)
+  
   const fazerLogin = async (e) => {
     e.preventDefault();
     try {
@@ -14,6 +17,7 @@ const Home = () => {
 
         if (resposta.ok) {
             console.log("Login bem-sucedido:", dados);
+            setUser(dados)
         } else { 
             console.warn("Erro de login:", dados.erro);
         }
@@ -41,8 +45,7 @@ const Home = () => {
           </form>
         </div>
       </div>
-      {email}
-      {senha}
+      
     </>
   )
 }
