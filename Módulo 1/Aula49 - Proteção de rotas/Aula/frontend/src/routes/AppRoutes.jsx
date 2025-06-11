@@ -14,20 +14,20 @@ const AppRoutes = () => {
         <Route path='/perfil' element = {<Perfil/>} />
 
         <Route path='/aluno' element = {
-          <RotasProtegidas>
+          <RotasProtegidas tipoPermitido="aluno">
               <Aluno/>
           </RotasProtegidas>
         } /> 
 
 
         <Route path='/admin' element = {
-          <RotasProtegidas>
+          <RotasProtegidas tipoPermitido="admin">
               <Admin/>
           </RotasProtegidas>
         } />
 
         <Route path='/professor' element = {
-          <RotasProtegidas>
+          <RotasProtegidas tipoPermitido="professor">
             <Professor/>
           </RotasProtegidas>
           } 
