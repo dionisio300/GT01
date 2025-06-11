@@ -5,15 +5,33 @@ import Perfil from '../pages/Perfil'
 import Aluno from '../pages/Aluno'
 import Admin from '../pages/Admin'
 import Professor from '../pages/Professor'
+import RotasProtegidas from './RotasProtegidas'
 
 const AppRoutes = () => {
   return (
     <Routes>
         <Route path='/' element = {<Home/>} />
         <Route path='/perfil' element = {<Perfil/>} />
-        <Route path='/aluno' element = {<Aluno/>} />
-        <Route path='/admin' element = {<Admin/>} />
-        <Route path='/professor' element = {<Professor/>} />
+
+        <Route path='/aluno' element = {
+          <RotasProtegidas>
+              <Aluno/>
+          </RotasProtegidas>
+        } /> 
+
+
+        <Route path='/admin' element = {
+          <RotasProtegidas>
+              <Admin/>
+          </RotasProtegidas>
+        } />
+
+        <Route path='/professor' element = {
+          <RotasProtegidas>
+            <Professor/>
+          </RotasProtegidas>
+          } 
+        />
     </Routes>
   )
 }
