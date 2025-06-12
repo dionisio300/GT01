@@ -119,6 +119,8 @@ app.post('/cadastrarUsuario',async (req,res) => {
 
     novoUsuario.senha = await bcrypt.hash(novoUsuario.senha,10)
 
+    
+
     let sql = `insert into usuarios (username, senha, nome, ativo, tipo) values
     ('${novoUsuario.username}','${novoUsuario.senha}','${novoUsuario.nome}',${novoUsuario.ativo},'${novoUsuario.tipo}')`
 
