@@ -18,7 +18,7 @@ const Professor = () => {
         </div>
         {!tela && 
         (<div className='text-center mt-4'>
-          Selecione umação acima
+          Selecione um opção acima
         </div>)
         }
 
