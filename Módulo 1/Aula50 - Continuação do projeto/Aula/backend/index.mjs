@@ -126,10 +126,12 @@ WHERE Professores_Disciplinas.professor_id = ${id_prof}
   Professores_Disciplinas.disciplina_id = ${id_disp};`
 
   conexao.query(sql,(erro, resposta) =>{
-    
+    if(erro){
+        return res.send(erro)
+    }else{
+        return res.send(resposta)
+    }
   })
-
-    res.send('Alunos')
 })
 
 
