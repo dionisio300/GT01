@@ -111,6 +111,27 @@ app.post('/verificarLogin', (req, res) => {
     })
 })
 
+app.get('/trazerAlunos/:id_prof/:id_disp',(req,res) => {
+    let id_prof = req.params.id_prof
+    let id_disp = req.params.id_disp
+    console.log(id_prof)
+    console.log(id_disp)
+
+    let sql = `SELECT Usuarios.nome, usuarios.id
+FROM Usuarios
+JOIN Alunos_Disciplinas ON Usuarios.id = Alunos_Disciplinas.aluno_id
+JOIN Professores_Disciplinas ON Alunos_Disciplinas.disciplina_id = Professores_Disciplinas.disciplina_id
+WHERE Professores_Disciplinas.professor_id = ${id_prof}
+  AND Usuarios.tipo_usuario = 'aluno' AND
+  Professores_Disciplinas.disciplina_id = ${id_disp};`
+
+  conexao.query(sql,(erro, resposta) =>{
+    
+  })
+
+    res.send('Alunos')
+})
+
 
 app.listen(porta, () => {
     console.log(`O servidor está rodando na porta ${porta}`)

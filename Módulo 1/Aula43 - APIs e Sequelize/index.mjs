@@ -137,6 +137,13 @@ app.post('/cadastrarUsuario',async (req,res) => {
 
 
 
+app.get('/trazerAlunos',(req, res) => {
+    
+    return res.send('teste')
+})
+
+
+
 
 
 

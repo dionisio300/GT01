@@ -7,13 +7,14 @@ const Professor = () => {
     console.log(professor)
 
     let [tela, setTela] = useState()
+    console.log(tela)
 
 
   return (
     <div>
         <h1 className='text-center'>Painel do Professor</h1>
         <div className='text-center mt-5'>
-          <button className='btn btn-primary me-4'>Lançar Notas</button>
+          <button onClick={() => setTela('notas')} className='btn btn-primary me-4'>Lançar Notas</button>
           <button onClick={()=>setTela('freq')} className='btn btn-success'>Lançar Frequência</button>
         </div>
         {!tela && 
@@ -23,13 +24,13 @@ const Professor = () => {
         }
 
         {tela == 'freq' && (
-          <div>
+          <div style={{width:'70%',margin:'10px auto'}}>
             <h2>Lançamento de frequencia</h2>
 
             <div className='d-flex p-4'>
               <div style={{width:'300px'}}>
               <span>João Silva</span>
-              </div>
+            </div>
 
             <div>
               <select name="" id="">
@@ -47,7 +48,22 @@ const Professor = () => {
           </div>
         )}
 
+        {tela == 'notas' && (
+          <div style={{width:'70%',margin:'10px auto'}}>
+            <h2>Lançamento de notas</h2>
 
+            <div className='d-flex p-4'>
+              <div style={{width:'300px'}}>
+                <span>João Silva</span>
+              </div>
+
+              <div>
+                <input type="number" min={0} max={10} step={0.1}/>
+              </div>
+            </div>
+            <button className='btn btn-primary w-100'>Salvar Frequência</button>
+          </div>
+        )}
         
 
 
