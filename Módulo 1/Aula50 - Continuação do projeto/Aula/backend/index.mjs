@@ -135,6 +135,20 @@ WHERE Professores_Disciplinas.professor_id = ${id_prof}
 })
 
 
+app.get('/dadosProfessor/:id',(req,res) =>{
+    let id_prof = req.params.id
+    let sql = `select professores_disciplinas.disciplina_id, disciplinas.nome from professores_disciplinas join disciplinas on professores_disciplinas.disciplina_id = disciplinas.id where professor_id = ${id_prof};`
+    conexao.query(sql,(erro, resposta) =>{
+    if(erro){
+        return res.send(erro)
+    }else{
+        console.log(resposta)
+        return res.send(resposta)
+    }
+  })
+})
+
+
 app.listen(porta, () => {
     console.log(`O servidor está rodando na porta ${porta}`)
 })
