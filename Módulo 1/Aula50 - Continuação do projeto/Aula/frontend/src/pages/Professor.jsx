@@ -11,6 +11,7 @@ const Professor = () => {
   let [turma, setTurma] = useState()
   let [alunos, setAlunos] = useState()
   let [disciplinasProfessor, setDisciplinasProfessor] = useState([])
+  let [alunosFreq, setAlunosFreq] = useState([])
 
   async function lancarNotas(e) {
     const id_prof = JSON.parse(localStorage.getItem('usuario')).id
@@ -22,15 +23,13 @@ const Professor = () => {
 
     setAlunos(dados)
 
-    let alunosFreq = []
-    
-
-
     if(e == 'freq'){
       setTela('freq')
     }else{
       setTela('notas')
     }
+
+    
   }
 
   useEffect(() => {
@@ -45,6 +44,21 @@ const Professor = () => {
   }, []);
 
 
+  let a = []
+  function construirFrequencia(freq,nome,id){
+    a.push({nome:nome,id:id,freq:freq})
+    console.log(a)
+  }
+
+  async function postarFrequencia(){
+    
+    const resposta = await fetch('http://localhost:3000/postarFrequencia',
+       {method: 'POST',
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(a) })
+        
+      const dados = await resposta.json();
+  }
 
   return (
     <div>
@@ -96,15 +110,16 @@ const Professor = () => {
                 <span>{usuario.nome}</span>
               </div>
               <div>
-                <select name="" id="">
-                  <option value="">Presente</option>
-                  <option value="">Falta</option>
+                <select key={usuario.id} onChange={(e)=>construirFrequencia(e.target.value,usuario.nome,usuario.id)} name="" id="">
+                  <option value="">Selecione</option>
+                  <option value="presente">Presente</option>
+                  <option value="falta">Falta</option>
               </select>
               </div>
             </div>
-            
+
           ))}
-          <button className='btn btn-primary w-100'>Salvar Nota</button>
+          <button onClick={() => postarFrequencia()} className='btn btn-success w-100'>Salvar Frequência</button>
         </div>
       )}
 

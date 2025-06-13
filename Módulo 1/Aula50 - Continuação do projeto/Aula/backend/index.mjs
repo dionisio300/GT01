@@ -45,19 +45,19 @@ conexao.connect((erro) => {
 })
 
 
-function autenticarUsuario(req,res, next){
+function autenticarUsuario(req, res, next) {
     const token = req.headers.authorization?.split(' ')[1]
     console.log(token)
-    if(!token){
-        return res.status(401).json({msg:'Token não fornecido'})
+    if (!token) {
+        return res.status(401).json({ msg: 'Token não fornecido' })
     }
 
     try {
-        const usuario = jwt.verify(token,senhaJWT)
+        const usuario = jwt.verify(token, senhaJWT)
         req.usuario = usuario
         next()
     } catch (error) {
-        return res.status(403).json({msg:'Token inválido'})
+        return res.status(403).json({ msg: 'Token inválido' })
     }
 
 }
@@ -66,7 +66,7 @@ app.get('/', (req, res) => {
     res.send('Servidor rodando')
 })
 
-app.get('/dadosProfessor',autenticarUsuario,(req,res) => {
+app.get('/dadosProfessor', autenticarUsuario, (req, res) => {
     return res.send('API professores')
 })
 
@@ -111,7 +111,7 @@ app.post('/verificarLogin', (req, res) => {
     })
 })
 
-app.get('/trazerAlunos/:id_prof/:id_disp',(req,res) => {
+app.get('/trazerAlunos/:id_prof/:id_disp', (req, res) => {
     let id_prof = req.params.id_prof
     let id_disp = req.params.id_disp
     console.log(id_prof)
@@ -125,27 +125,47 @@ WHERE Professores_Disciplinas.professor_id = ${id_prof}
   AND Usuarios.tipo_usuario = 'aluno' AND
   Professores_Disciplinas.disciplina_id = ${id_disp};`
 
-  conexao.query(sql,(erro, resposta) =>{
-    if(erro){
-        return res.send(erro)
-    }else{
-        return res.send(resposta)
-    }
-  })
+    conexao.query(sql, (erro, resposta) => {
+        if (erro) {
+            return res.send(erro)
+        } else {
+            return res.send(resposta)
+        }
+    })
 })
 
 
-app.get('/dadosProfessor/:id',(req,res) =>{
+app.get('/dadosProfessor/:id', (req, res) => {
     let id_prof = req.params.id
     let sql = `select professores_disciplinas.disciplina_id, disciplinas.nome from professores_disciplinas join disciplinas on professores_disciplinas.disciplina_id = disciplinas.id where professor_id = ${id_prof};`
-    conexao.query(sql,(erro, resposta) =>{
-    if(erro){
-        return res.send(erro)
-    }else{
-        console.log(resposta)
-        return res.send(resposta)
+    conexao.query(sql, (erro, resposta) => {
+        if (erro) {
+            return res.send(erro)
+        } else {
+            console.log(resposta)
+            return res.send(resposta)
+        }
+    })
+})
+
+app.post('/postarFrequencia', (req, res) => {
+    let dados = req.body
+    console.log(dados)
+    let sql = ''
+    for (let i = 0; i < dados.length; i++) {
+        sql = `insert into alunos_freq (aluno_id, freq) values(${dados[i].id},'${dados[i].freq}')`
+
+        conexao.query(sql, (erro, result) => {
+            if (erro) {
+                console.log(erro)
+            } else {
+                console.log(result)
+            }
+        })
     }
-  })
+
+    return res.send('Dados salvos no banco')
+
 })
 
 
